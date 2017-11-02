@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)http://getbootstrap.com/examples/theme/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+
+    <title>Editar Rango</title>
+
+
+
+
+
+  </head>
+
+  <body role="document" data-feedly-mini="yes">
+
+    <div class="container theme-showcase" role="main">
+
+      {% include "monitoreo/header.html" %}
+
+      <div class="jumbotron">
+       <td><a class="btn btn-lg btn-success" href="/monitoreo" role="button">Monitoreo </a>
+       <h1>Rango {{ rango.ip }}</h1>
+       <h2><a href='/rango/{{rango.id}}'>{{ rango.empresa_name }}</a></h2>
+        <h3>Editar</h2>
+
+      </div>
+
+ 
+
+   <table class='table'>
+
+   <tr class='active'>
+        
+    
+
+   <td>IP</td>
+   <td>Red</td>
+ 
+   <td>Tipo</td>
+   <td>Caracteristica</td>
+   <td>Accion</td>
+
+   </tr>
+
+
+  
+    
+ 
+  <form method="post" action="/editar_rango/{{rango.id}}">
+
+   <tr>
+    {% csrf_token %}
+  
+   <td><input name="ip" class="form-control" value='{{ rango.ip }}'></td>
+   
+   <td>
+    <select class="form-control" name="red">
+    {% for red in red%}
+
+    
+
+     {% if red_s == red.name %}
+
+     <option value="{{red.id}}" selected>{{red.name}}</option>  
+
+     {% else %}
+      <option value="{{red.id}}">{{red.name}}</option>     
+
+     {% endif%}
+      
+
+    {% endfor %}
+    </select> </td>
+
+      <td>
+    <select class="form-control" name="tipo" >
+    {% for tipo in tipo%}
+
+         {% if tipo_s == tipo.name %}
+
+     <option value="{{tipo.id}}" selected>{{tipo.name}}</option>
+
+     {% else %}
+     <option value="{{tipo.id}}" >{{tipo.name}}</option>   
+
+     {% endif%}
+      
+
+
+     
+    {% endfor %}
+    </select> </td>
+
+      <td>
+    <select class="form-control" name="caracteristica">
+    {% for caracteristica in caracteristica%}
+
+
+         {% if caracteristica_s == caracteristica.name %}
+
+      <option value="{{caracteristica.id}}" selected >{{caracteristica.name}}</option>
+
+     {% else %}
+    <option value="{{caracteristica.id}}">{{caracteristica.name}}</option>
+     {% endif%}
+
+
+    
+    {% endfor %}
+    </select> </td>
+
+
+  
+  
+   
+<td><input type="submit"  value="Update" class="btn btn-primary"></td></tr>
+
+ </form>
+    
+
+   </table>
+
+
+    </div> <!-- /container -->
+
+
+
+</body></html>

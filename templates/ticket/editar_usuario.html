@@ -1,0 +1,66 @@
+
+
+
+
+
+{% include "ticket/mheader.html" %}
+
+
+        
+<div class="container">
+
+        <h3>{{usuario.username}}</h3>
+     
+      
+
+<table class='table'>
+
+
+  <form method="post" action="/editar_usuario/{{usuario.id}}">
+    
+  {% csrf_token %}
+
+
+	<tr>
+	<td>Nombre</td>
+	<td ><input  class="form-control" value="{{usuario.username}}" id="field"  name="name" maxlength="100"></td>
+	</tr>
+
+	<tr>
+	<td>Grupo</td>
+	<td ><input  class="form-control" value="{{grupo}}" id="field"  name="grupo" maxlength="100"></td>
+	</tr>
+	
+	<tr>
+	<td>Correo</td>
+	<td ><input  class="form-control" value="{{usuario.email}}" id="field"  name="email" maxlength="100"></td>
+	</tr>
+
+  <tr>
+  <td>Empresa</td>
+  <td ><input  class="form-control" value="{{usuarios.empresa}}" id="field"  name="empresa" maxlength="100"></td>
+  </tr>
+
+  <tr>
+  <td>Direccion</td>
+  <td ><input  class="form-control" value="{{usuarios.direccion}}" id="field"  name="direccion" maxlength="100"></td>
+  </tr>
+
+  <tr>
+  <td>Ciudad</td>
+  <td ><input  class="form-control" value="{{usuarios.ciudad}}" id="field"  name="ciudad" maxlength="100"></td>
+  </tr>
+
+
+
+
+  <input  class="btn btn-lg btn-primary" id="field1" type="submit" value="Update" />
+
+  <br></br>
+  </form>
+
+
+</table>
+ <a class="btn btn-lg btn-primary" href="/telefono/{{usuario.id}}" role="button">Telefonos &raquo;</a>
+
+</div>

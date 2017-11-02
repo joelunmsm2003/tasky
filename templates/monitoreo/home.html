@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)http://getbootstrap.com/examples/theme/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+
+    <title>Monitoreo</title>
+
+      <script type="text/javascript">
+
+
+
+                    var username = 'hello';
+                    var password = 'lll';
+
+                    $.ajax({
+                        url : "/posta", 
+                        type : "POST", 
+                        dataType:"json",
+                        data : {
+                            username: username,
+                            password: password,
+                            csrfmiddlewaretoken: '{{ csrf_token }}'
+
+                            },
+                            success : function(json) {
+
+                                console.log(json)
+                        
+
+                            },
+                    });
+                    return false;
+       
+</script>
+
+
+
+  </head>
+
+  <body role="document" data-feedly-mini="yes">
+
+    <div class="container theme-showcase" role="main">
+
+      {% include "monitoreo/header.html" %}
+
+      <div class="jumbotron">
+        <h1>Monitoreo</h1>
+         <h2>{{ empresa.name }}</h2>
+      </div>
+
+
+
+   <table class='table'>
+
+   <tr class='active'><td>Nombre</td><td>Acciones</td></tr>
+
+
+   {% for empresa in empresa %}
+   <tr>
+
+   <td>{{ empresa.name }}</td>
+   <td><a class="btn btn-primary" href="/equipo/{{ empresa.id }}" role="button">Equipos </a>
+   <a class="btn btn-success" href="/rango/{{ empresa.id }}" role="button">Rangos </a></td>
+   </tr>
+   {% endfor %}
+
+    
+
+   </table>
+
+
+    </div> <!-- /container -->
+
+
+
+</body></html>

@@ -1,0 +1,165 @@
+
+        
+
+<script src="http://code.jquery.com/jquery-1.10.2.js" type="text/javascript" /></script>
+
+
+{% include "ticket/mheader.html" %}
+{% include "user_chat.html" %}
+
+    {% load static %} 
+  
+  <link href="{% static 'css/flexbox.css' %}" rel="stylesheet" type='text/css'>
+
+<div class="container">
+
+
+
+
+<div id='movil'>
+
+<div id='ticket_id'>{{ticket.id}}</div>
+
+<h3>Asignar un soporte</h3>
+<table class ='table'>
+    
+ {% for user_soporte in user_soporte%}
+    <tr class='reasignar'>
+     <td class='id'>{{user_soporte.id}}</td>
+     <td >{{user_soporte.first_name}}</td>
+     </tr>
+{% endfor %}
+
+</table>
+</div>
+<div class="panel panel panel-default">
+  <div class="panel-heading">
+
+  <div class="row">
+  <div class="col col-span-1"><center><h4><i class="fa fa-wrench"></i> Detalle de la tarea {{ticket.asunto}}</h4></center></div>
+  <!--<div class="col col-span-1"><center><h4><i class="fa fa-clock-o"></i> Tiempo de espera  {{espera}} </h4></center></div>
+-->
+  </div>
+
+
+  </div>
+  <div class="panel-body">
+
+
+          <div class="row">
+            <div class="col col-span-1">
+             <div id="ticketx"></div> </div>
+           
+           
+          </div>
+
+   
+          <div class="row">
+
+             <div class="col col-span-1">Tipo:</div>
+             <div class="col col-span-1">{{ticket.tipo}}</div>
+
+          
+             <div class="col col-span-1">Creador: </div>
+            
+             <div class="col col-span-1"><a href='/ver_usuario/{{ticket.cliente_id}}/'>{{ticket.cliente.first_name}}</a></div>
+
+          </div>
+
+          <div class="row">
+            <div class="col col-span-1">Fecha de Inicio:</div>
+
+            <div class="col col-span-1">{{ticket.fecha_inicio}}</div>
+         
+            <div class="col col-span-1">Estado:</div>
+            <div class="col col-span-1">{{ticket.estado}}</div>
+          
+          </div>
+
+          <div class="row">
+            <div class="col col-span-1">Soporte Actual:</div>
+            <div class="col col-span-1"> {{ticket.soporte_actual}}</div>
+            
+
+            <div class="col col-span-1">Documentos : </div>
+            <div class="col col-span-1"> <a href='/documentos/{{ticket.id}}'>Documentos</a></div>
+
+           
+        
+          </div>
+
+
+</div>
+  
+
+
+  </div>
+
+
+
+<script>
+
+console.log('dddd')
+
+$.get( "/ticket/{{ticket.id}}", function( data ) {
+ 
+
+  console.log(data[0]['descripcion']);
+  $("#ticketx").append(data[0]['descripcion'])
+
+});
+
+
+
+$('.id').hide()
+
+ticket = $("#ticket_id").text()
+$("#ticket_id").hide()
+
+if ($("#form").width() < 700) {
+
+  $("#contenedor").hide()
+  $("#movil").show()
+  
+
+}
+
+if ($("#form").width() > 700) {
+
+  $("#contenedor").show()
+  $("#movil").hide()
+}
+
+ $( ".reasignar" ).mouseover(function() {
+
+
+
+    $( ".reasignar" ).click(function() {
+
+    soporte = $(this).children().html()
+
+    $(this).css("background","#5C84C2");
+    window.location.href = "/asignar_post_gilda_new/"+soporte+"/"+ticket
+
+});
+
+});
+
+
+</script>
+
+
+<style>
+
+.reasignar{
+
+    background: #428BCA;
+    color:white;
+    text-align: center;
+}
+.panel-heading {
+  padding: 0px 1px; 
+
+}
+
+</style>

@@ -1,0 +1,58 @@
+
+<div id="st-container" class="st-container">
+ 
+    <!-- content push wrapper -->
+    <div class="st-pusher">
+ 
+        <nav class="st-menu st-effect-7" id="menu-7">
+
+        <div id ='contenchat'>
+            <div id='titlechat'>
+            <h1>Chat</h1>
+            </div>
+            <div id='bienvenido'>
+            Bienvenido, <span id='user'>{{user.first_name}}</span>
+                
+
+            </div>
+
+        </div>
+
+
+
+ <div id='Chat'>
+
+
+<li ng-repeat=" data in data"  >
+        {[{ data.user }]}  {[{ data.text }]}
+</li>
+</div>
+
+
+
+<div id='chatinput'>
+<form ng-submit="Save()">
+    <input id='textchat' type="text" ng-model="newa" class='form-control' >
+  </form>
+</div>
+
+
+
+        </nav>
+ 
+        <div class="st-content"><!-- this is the wrapper for the content -->
+            <div class="st-content-inner"><!-- extra div for emulating position:fixed of the menu -->
+                <!-- the content -->
+                        <div class="main clearfix">
+                            <div id="st-trigger-effects" class="column">
+                                <button id ='noti' data-effect="st-effect-7" class="btn btn-primary" ng-click="Sidebar()"><i class="icon-comments"></i></button>
+                            </div>
+                        </div><!-- /main -->
+            </div><!-- /st-content-inner -->
+        </div><!-- /st-content -->
+ 
+    </div><!-- /st-pusher -->
+ 
+</div><!-- /st-container -->
+
+<script type="text/javascript" src="/static/js/sidebar.js"></script>

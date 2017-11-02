@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+  
+    <link rel="icon" href="/static/img/BOLA8.png" type="image/gif" sizes="16x16">
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+
+    
+
+    {% if oc %}
+    <title>({{oc}}) Xiencias</title>
+    {% else %}
+    <title>Xiencias</title>
+    {% endif %}
+
+
+    {% load static %} 
+    <link rel=stylesheet href="/static/css/animate.css">
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type='text/css'>
+
+    </head>
+
+    <body>
+
+   
+<div id='oc'>{{oc}}</div>
+
+<div id='audio'></div>
+
+  <script type="text/javascript">
+    //$(".container1").hide()
+
+  </script>
+
+
+      <div class="navbar navbar-default navbar-fixed-top">
+      <div class="navbar-header">
+
+      <a class="navbar-brand " href="/ticketopen" style="background-color:#fff; padding-right:13px; border-radius:35px; width:52px;"><center><img src="/static/img/BOLA8.png" width="20px"></center></a>
+
+
+<a class ="navbar-brand " href='/ticketopen'> <IMG SRC="/static/img/LETRASXIENCIAS1.png" width='150px'></a>
+    
+      
+      <a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      </a>
+      </div>
+
+      <div class="navbar-collapse collapse">
+
+
+           <ul class="nav navbar-nav">
+
+
+                {% if grupo == 'Soporte' %}
+
+                <li><a href="/ticketopen/"><span id='menu'><i class="fa fa-share"></i> Abiertos</span>  <span id='t_t'>{{oc}}/{{t}}</span></a></li>
+                
+                {% endif %}
+
+                {% if grupo == 'Clientes' %}
+
+
+                <li><a href="/ticketopen/"><span id='menu'><i class="fa fa-share"></i> Abiertos</span>  <span id='t_t'>{{oc}}/{{t}}</span></a></li>
+           
+              
+                {% endif %}                 
+
+ 
+                <li><a href="/ticketscerrados"><span id='menu'><i class="fa fa-recycle"></i> Cerrados </span></a></li>
+
+                <li><a href="/agregar_ticket_m"><span id='menu'><i class="fa fa-plus"></i> Agregar Tarea </span> </span></a></li>
+
+                <!--<li class='conversa'><a><span id='menu'><i class="fa fa-comment"></i> Chat</span></a></li>-->
+
+                
+              
+            </ul>
+
+
+            <ul class="nav navbar-nav navbar-right">
+            {% if grupo == 'Soporte' %}
+
+            <li><a href="/gilda"><span id='menu'><i class="fa fa-cubes"></i> Admin</span>  <span id='totalticket'>{{tta}}</span></a></li>
+
+            {% endif %}   
+
+
+
+
+            <li><a  a href="/static/img/dsds.webm"><span id='menu' ><i class="fa fa-cube"></i> Help </span></a></li>
+
+            <li class="active"><a href="/ver_usuario/{{user.id}}"><i class="fa fa-user"></i>  {{user.first_name}}<span class="sr-only"></span></a></li>
+            <li><a href="/salir"><span id='menu'><i class="fa fa-power-off"></i> Salir</span></a></li>
+            </ul>
+
+
+
+                </div>
+            </div>
+
+<hr>
+
+ <script type="text/javascript" src="/static/js/bootstrap.js"></script>
+
+
+
+  <style type="text/css">
+
+.modal-content {
+
+  margin-left: -80px;
+  width: 57em;
+
+  }
+  </style>
+
+
+
+</body>
+
+</html>
+
+      <script type="text/javascript">
+
+
+
+        $('#audio').hide()
+        $('#oc').hide()
+      
+     
+       
+
+       
+        
+</script>
+
+<style type="text/css">
+
+
+
+  
+  #totalticket,#t_t,#t_a,#t_c,#t_as,#t_r,#t_p,#t_n,#tta{
+
+    background: white;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 11px;
+    padding-right: 11px;
+    border-radius: 1em;
+    color: #2e6da4;
+
+  }
+  #menu{
+    font-size: 14px;
+    color: white;
+    width: 12px;
+    margin:5px;
+  }
+  .nav :hover{
+
+    background: #123;
+    color:#777;
+    transition: all 0.5s ease-in;
+
+  }
+
+ 
+    
+    .fa-times{
+
+        color:#428bca;
+    }
+
+
+
+
+
+
+
+</style>
+
+
+
+
+
+
+     <script type="text/javascript">
+
+     console.log('est',window.onbeforeunload)
+
+    $(".nav a").on("click", function(){
+    $(".nav").find(".active").removeClass("active");
+    $(this).parent().addClass("active");
+    });
+
+    i=0;
+
+$( ".conversa" ).click(function() {
+
+   
+  
+    $( ".container1" ).removeClass( "animated zoomOut" );
+    $( ".container1" ).addClass( "animated zoomIn" );
+
+         $(".container1").css({
+
+      "margin-top":150+$(window).scrollTop(),
+      "z-index":100,
+      "position":"absolute"
+    });
+
+     
+
+});
+
+$( ".conversa" ).click(function() {
+
+   
+
+     $(".container1").show()
+
+});
+
+
+
+
+
+
+
+     </script>

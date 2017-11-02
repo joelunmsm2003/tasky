@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)http://getbootstrap.com/examples/theme/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+
+    <title>Monitoreo</title>
+
+      <script type="text/javascript">
+
+
+
+                    var username = 'hello';
+                    var password = 'lll';
+
+                    $.ajax({
+                        url : "/posta", 
+                        type : "POST", 
+                        dataType:"json",
+                        data : {
+                            username: username,
+                            password: password,
+                            csrfmiddlewaretoken: '{{ csrf_token }}'
+
+                            },
+                            success : function(json) {
+
+                                console.log(json)
+                        
+
+                            },
+                    });
+                    return false;
+       
+</script>
+
+
+
+  </head>
+
+  <body role="document" data-feedly-mini="yes">
+
+    <div class="container theme-showcase" role="main">
+
+      {% include "monitoreo/header.html" %}
+
+      <div class="jumbotron">
+
+        <p>
+  <a class="btn btn-lg btn-primary" href="/equipo/{{parametro.equipo.empresa_id}}" role="button">Equipos &raquo;</a>
+  </p>
+
+       <h1><a href='/parametro/{{parametro.equipo_id}}/{{parametro.equipo.empresa_id}}'>Equipo {{ parametro.equipo }}</a></h1>
+        <h3>Editar</h2>
+
+      </div>
+
+
+
+   <table class='table'>
+
+   <tr class='active'>
+        
+    
+        <td>IP</td>
+        <td>Puerto Origen</td>
+        <td>Puerto Final</td>
+
+        <td>Servicio</td>
+        <td>User</td>
+        <td>Password</td>
+   </tr>
+ 
+  <form method="post" action="/editar_parametro/{{parametro.id}}">
+
+   <tr>
+    {% csrf_token %}
+  <td><input name="ip" class="form-control" value='{{ parametro.ip }}'></td>
+ <td><input name="puerto_origen" class="form-control" value='{{ parametro.puerto_origen }}'></td>
+   <td><input name="puerto_final" class="form-control" value='{{ parametro.puerto_final }}'></td>
+  
+  <td><input name="tipo" class="form-control" value='{{ parametro.tipo }}'></td>
+   <td><input name="servicio" class="form-control" value='{{ parametro.servicio }}'></td>
+   <td><input name="user" class="form-control" value='{{ parametro.user }}'></td>
+   <td><input name="password" class="form-control" value='{{ parametro.password }}'></td>
+  
+   </tr>
+
+<td><input type="submit"  value="Update" class="btn btn-primary"></td>
+ </form>
+    
+
+   </table>
+
+
+    </div> <!-- /container -->
+
+
+
+</body></html>

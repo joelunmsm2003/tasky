@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)http://getbootstrap.com/examples/theme/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script type="text/javascript" src="/static/js/angular-cookies.min.js"></script>
+
+     {% load static %} 
+
+   
+   
+
+
+<script type="text/javascript" src="/static/js/jquery-1.9.1.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+
+
+    <script>
+
+
+    var myApp=angular.module('myApp', ['ngCookies']);
+    myApp.config(function($interpolateProvider){
+    $interpolateProvider.startSymbol('{[{').endSymbol('}]}');
+    });
+    
+    </script>
+
+
+    </head>
+
+
+
+<body>
+
+
+
+
+<div class="panel panel-default">
+  <div class="panel-body">
+   <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+
+
+</div> <!-- /container -->
+
+
+
+
+
+
+
+<script>
+
+
+ 
+function Todo($scope,$http,$cookies) {
+
+   
+    $http.get("/ver_ticket").success(function(response) {$scope.names = response;
+
+    });
+
+    $scope.addNew =function(){
+
+ 
+    	console.log($scope.asunto);
+    	
+    	var todo ={
+
+    		asunto: $scope.asunto,
+    		tipo: $scope.tipo,
+    		descripcion: $scope.descripcion,
+    
+    	}
+
+		$http({
+		url: '/agregar_ticket_movil/',
+		data: todo,
+		method: 'POST',
+		headers: {
+		'X-CSRFToken': $cookies['csrftoken']
+		}
+		});
+
+  
+    }
+
+
+
+}
+
+</script>
+
+
+<!-- Button trigger modal -->
+
+
+
+</body></html>
+

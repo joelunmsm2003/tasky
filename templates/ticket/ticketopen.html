@@ -1,0 +1,336 @@
+  <script src="http://code.jquery.com/jquery-1.10.2.js" type="text/javascript" /></script>
+  <script type="text/javascript">
+    $(".container1").hide()
+
+  </script>
+  
+{% include "ticket/mheader.html" %}
+{% include "user_chat.html" %}
+  
+{{msj}}
+
+
+<div class="container">
+
+<h3><i class="fa fa-cube"></i> Abiertos</h3><br>
+          
+
+<table class='table'>
+
+<tr class='active'>
+  
+    <td class='id'>Id</td>
+    {% if grupo == 'Soporte' %}
+    <td>Cliente</td>
+    {% endif %}
+    <td>Asunto</td>
+    <td>Tiempo de Espera</td>
+   
+    <td>Soporte Actual</td>
+    
+    <td>Estado</td>
+
+
+</tr>
+
+
+{% for ticket in opene %}
+
+    <tr class='open'>
+
+
+    <td class='id'>{{ticket.id}}</td>
+    {% if grupo == 'Soporte' %}
+    <td class='cli'>{{ticket.cliente__first_name}}</td>
+    {% endif %}
+
+    {% if ticket.respuestas == "0" %}
+    
+    <td >{{ticket.asunto}}</td>
+    {% else %}
+    <td >{{ticket.asunto}} ({{ticket.respuestas}})</td>
+    
+    {% endif %}
+
+
+    <td >{{ticket.dif_fecha}}</td>
+
+
+    <td >{{ticket.soportea}}</td>
+
+ 
+
+
+    <td >{{ticket.estado__name}}</td>
+
+
+   
+   
+
+    </tr>
+
+{% endfor %}
+
+
+{% for ticket in open %}
+
+    <tr class='open'>
+
+
+    <td class='id'>{{ticket.id}}</td>
+    {% if grupo == 'Soporte' %}
+    <td class='cli'>{{ticket.cliente__first_name}}</td>
+    {% endif %}
+
+    {% if ticket.respuestas == "0" %}
+    
+    <td >{{ticket.asunto}}</td>
+    {% else %}
+    <td >{{ticket.asunto}} ({{ticket.respuestas}})</td>
+    
+    {% endif %}
+
+
+    <td >{{ticket.dif_fecha}}</td>
+
+
+    <td >{{ticket.soportea}}</td>
+
+ 
+
+
+    <td >{{ticket.estado__name}}</td>
+   
+   
+
+    </tr>
+
+{% endfor %}
+
+{% for ticket in open1c %}
+
+    <tr class='open'>
+
+
+    <td class='id'>{{ticket.id}}</td>
+    {% if grupo == 'Soporte' %}
+    <td class='cli'>{{ticket.cliente__first_name}}</td>
+    {% endif %}
+    
+
+
+     {% if ticket.respuestas == "0" %}
+    
+    <td >{{ticket.asunto}}</td>
+    {% else %}
+    <td >{{ticket.asunto}} ({{ticket.respuestas}})</td>
+    
+    {% endif %}
+
+   
+
+    <td >{{ticket.dif_fecha}}</td>
+
+ 
+
+    <td >{{ticket.soportea}}</td>
+
+  
+
+
+    <td >{{ticket.estado__name}}</td>
+   
+   
+
+    </tr>
+
+{% endfor %}
+
+
+
+{% for ticket in openn %}
+
+    <tr class='open'>
+
+
+    <td class='id'>{{ticket.id}}</td>
+    {% if grupo == 'Soporte' %}
+    <td class='cli'>{{ticket.cliente__first_name}}</td>
+    {% endif %}
+    
+
+
+     {% if ticket.respuestas == "0" %}
+    
+    <td >{{ticket.asunto}}</td>
+    {% else %}
+    <td >{{ticket.asunto}} ({{ticket.respuestas}})</td>
+    
+    {% endif %}
+
+   
+
+    <td >{{ticket.dif_fecha}}</td>
+
+ 
+
+    <td >{{ticket.soportea}}</td>
+
+  
+
+
+    <td >{{ticket.estado__name}}</td>
+   
+   
+
+    </tr>
+
+{% endfor %}
+
+
+
+{% for ticket in answered %}
+
+    <tr class='answered'>
+
+   <td class='id'>{{ticket.id}}</td>
+    {% if grupo == 'Soporte' %}
+    <td class='cli'>{{ticket.cliente__first_name}}</td>
+    {% endif %}
+     {% if ticket.respuestas == "0" %}
+    
+    <td >{{ticket.asunto}}</td>
+    {% else %}
+    <td >{{ticket.asunto}} ({{ticket.respuestas}})</td>
+    
+    {% endif %}
+
+ 
+   
+    <td >{{ticket.dif_fecha}}</td>
+
+
+    <td >{{ticket.soportea}}</td>
+
+ 
+    <td >{{ticket.estado__name}}</td>
+
+   
+
+    </tr>
+
+{% endfor %}
+
+{% for ticket in answeredc %}
+
+    <tr class='answered'>
+
+   <td class='id'>{{ticket.id}}</td>
+    {% if grupo == 'Soporte' %}
+    <td class='cli'>{{ticket.cliente__first_name}}</td>
+    {% endif %}
+    {% if ticket.respuestas == "0" %}
+    
+    <td >{{ticket.asunto}}</td>
+    {% else %}
+    <td >{{ticket.asunto}} ({{ticket.respuestas}})</td>
+    
+    {% endif %}
+
+  
+    <td >{{ticket.dif_fecha}}</td>
+
+
+    <td >{{ticket.soportea}}</td>
+
+
+    <td >{{ticket.estado__name}}</td>
+
+   
+
+    </tr>
+
+{% endfor %}
+
+
+
+
+
+
+
+</table>
+
+
+
+
+</div>
+
+
+
+<script type="text/javascript">
+
+    
+ 
+    
+
+
+    $(".id").hide()
+    $(".container1").hide()
+           sw=screen.width
+    $(".container1").css( "margin-left", sw*0.82 );
+   
+
+    $( ".answered" ).mouseover(function() {
+    $(this).css('background-color', '#D5E5F0');
+    $(this).css("color",'#000');
+    });
+
+    $( ".answered" ).mouseout(function() {
+    $(this).css('background-color', 'white');
+    $(this).css("color",'#000');
+    });
+
+
+
+     $( ".fa-external-link-square" ).mouseout(function() {
+
+    
+    $(this).css("color",'#000');
+    });
+
+
+      
+    $( ".answered" ).click(function() {
+    
+    
+    window.location.href = "/mdetalle_ticket/"+$(this).children().html()
+
+});
+
+    $( ".open" ).click(function() {
+   
+    
+    window.location.href = "/mdetalle_ticket/"+$(this).children().html()
+
+});
+
+
+
+ $('.open').css("background",'#428bca');
+ $('.open').css("color",'#fff');
+
+  $('.openn').css("background",'#333');
+ $('.openn').css("color",'#fff');
+
+  $('.open1c').css("background",'#4ff');
+ $('.open1c').css("color",'#fff');
+
+
+   
+
+</script>
+
+
+
+  
+

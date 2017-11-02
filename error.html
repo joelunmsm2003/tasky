@@ -1,0 +1,2259 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="robots" content="NONE,NOARCHIVE">
+  <title>SMTPServerDisconnected at /add_tarea/</title>
+  <style type="text/css">
+    html * { padding:0; margin:0; }
+    body * { padding:10px 20px; }
+    body * * { padding:0; }
+    body { font:small sans-serif; }
+    body>div { border-bottom:1px solid #ddd; }
+    h1 { font-weight:normal; }
+    h2 { margin-bottom:.8em; }
+    h2 span { font-size:80%; color:#666; font-weight:normal; }
+    h3 { margin:1em 0 .5em 0; }
+    h4 { margin:0 0 .5em 0; font-weight: normal; }
+    code, pre { font-size: 100%; white-space: pre-wrap; }
+    table { border:1px solid #ccc; border-collapse: collapse; width:100%; background:white; }
+    tbody td, tbody th { vertical-align:top; padding:2px 3px; }
+    thead th { padding:1px 6px 1px 3px; background:#fefefe; text-align:left; font-weight:normal; font-size:11px; border:1px solid #ddd; }
+    tbody th { width:12em; text-align:right; color:#666; padding-right:.5em; }
+    table.vars { margin:5px 0 2px 40px; }
+    table.vars td, table.req td { font-family:monospace; }
+    table td.code { width:100%; }
+    table td.code pre { overflow:hidden; }
+    table.source th { color:#666; }
+    table.source td { font-family:monospace; white-space:pre; border-bottom:1px solid #eee; }
+    ul.traceback { list-style-type:none; color: #222; }
+    ul.traceback li.frame { padding-bottom:1em; color:#666; }
+    ul.traceback li.user { background-color:#e0e0e0; color:#000 }
+    div.context { padding:10px 0; overflow:hidden; }
+    div.context ol { padding-left:30px; margin:0 10px; list-style-position: inside; }
+    div.context ol li { font-family:monospace; white-space:pre; color:#777; cursor:pointer; }
+    div.context ol li pre { display:inline; }
+    div.context ol.context-line li { color:#505050; background-color:#dfdfdf; }
+    div.context ol.context-line li span { position:absolute; right:32px; }
+    .user div.context ol.context-line li { background-color:#bbb; color:#000; }
+    .user div.context ol li { color:#666; }
+    div.commands { margin-left: 40px; }
+    div.commands a { color:#555; text-decoration:none; }
+    .user div.commands a { color: black; }
+    #summary { background: #ffc; }
+    #summary h2 { font-weight: normal; color: #666; }
+    #explanation { background:#eee; }
+    #template, #template-not-exist { background:#f6f6f6; }
+    #template-not-exist ul { margin: 0 0 0 20px; }
+    #unicode-hint { background:#eee; }
+    #traceback { background:#eee; }
+    #requestinfo { background:#f6f6f6; padding-left:120px; }
+    #summary table { border:none; background:transparent; }
+    #requestinfo h2, #requestinfo h3 { position:relative; margin-left:-100px; }
+    #requestinfo h3 { margin-bottom:-1em; }
+    .error { background: #ffc; }
+    .specific { color:#cc3300; font-weight:bold; }
+    h2 span.commands { font-size:.7em;}
+    span.commands a:link {color:#5E5694;}
+    pre.exception_value { font-family: sans-serif; color: #666; font-size: 1.5em; margin: 10px 0 10px 0; }
+  </style>
+  
+  <script type="text/javascript">
+  //<!--
+    function getElementsByClassName(oElm, strTagName, strClassName){
+        // Written by Jonathan Snook, http://www.snook.ca/jon; Add-ons by Robert Nyman, http://www.robertnyman.com
+        var arrElements = (strTagName == "*" && document.all)? document.all :
+        oElm.getElementsByTagName(strTagName);
+        var arrReturnElements = new Array();
+        strClassName = strClassName.replace(/\-/g, "\-");
+        var oRegExp = new RegExp("(^|\s)" + strClassName + "(\s|$)");
+        var oElement;
+        for(var i=0; i<arrElements.length; i++){
+            oElement = arrElements[i];
+            if(oRegExp.test(oElement.className)){
+                arrReturnElements.push(oElement);
+            }
+        }
+        return (arrReturnElements)
+    }
+    function hideAll(elems) {
+      for (var e = 0; e < elems.length; e++) {
+        elems[e].style.display = 'none';
+      }
+    }
+    window.onload = function() {
+      hideAll(getElementsByClassName(document, 'table', 'vars'));
+      hideAll(getElementsByClassName(document, 'ol', 'pre-context'));
+      hideAll(getElementsByClassName(document, 'ol', 'post-context'));
+      hideAll(getElementsByClassName(document, 'div', 'pastebin'));
+    }
+    function toggle() {
+      for (var i = 0; i < arguments.length; i++) {
+        var e = document.getElementById(arguments[i]);
+        if (e) {
+          e.style.display = e.style.display == 'none' ? 'block': 'none';
+        }
+      }
+      return false;
+    }
+    function varToggle(link, id) {
+      toggle('v' + id);
+      var s = link.getElementsByTagName('span')[0];
+      var uarr = String.fromCharCode(0x25b6);
+      var darr = String.fromCharCode(0x25bc);
+      s.innerHTML = s.innerHTML == uarr ? darr : uarr;
+      return false;
+    }
+    function switchPastebinFriendly(link) {
+      s1 = "Switch to copy-and-paste view";
+      s2 = "Switch back to interactive view";
+      link.innerHTML = link.innerHTML == s1 ? s2: s1;
+      toggle('browserTraceback', 'pastebinTraceback');
+      return false;
+    }
+    //-->
+  </script>
+  
+</head>
+<body>
+<div id="summary">
+  <h1>SMTPServerDisconnected at /add_tarea/</h1>
+  <pre class="exception_value">Connection unexpectedly closed</pre>
+  <table class="meta">
+
+    <tr>
+      <th>Request Method:</th>
+      <td>POST</td>
+    </tr>
+    <tr>
+      <th>Request URL:</th>
+      <td>http://xiencias.com:8000/add_tarea/?descripcion=Esto+es+un+problema&amp;asunto=Automatic+Error&amp;cliente=1&amp;tipo=1</td>
+    </tr>
+
+    <tr>
+      <th>Django Version:</th>
+      <td>1.7.4</td>
+    </tr>
+
+    <tr>
+      <th>Exception Type:</th>
+      <td>SMTPServerDisconnected</td>
+    </tr>
+
+
+    <tr>
+      <th>Exception Value:</th>
+      <td><pre>Connection unexpectedly closed</pre></td>
+    </tr>
+
+
+    <tr>
+      <th>Exception Location:</th>
+      <td>/usr/lib/python2.7/smtplib.py in getreply, line 361</td>
+    </tr>
+
+    <tr>
+      <th>Python Executable:</th>
+      <td>/usr/bin/python</td>
+    </tr>
+    <tr>
+      <th>Python Version:</th>
+      <td>2.7.3</td>
+    </tr>
+    <tr>
+      <th>Python Path:</th>
+      <td><pre>[&#39;/home/proyectos/tasky&#39;,
+ &#39;/usr/lib/python2.7&#39;,
+ &#39;/usr/lib/python2.7/plat-linux2&#39;,
+ &#39;/usr/lib/python2.7/lib-tk&#39;,
+ &#39;/usr/lib/python2.7/lib-old&#39;,
+ &#39;/usr/lib/python2.7/lib-dynload&#39;,
+ &#39;/usr/local/lib/python2.7/dist-packages&#39;,
+ &#39;/usr/lib/python2.7/dist-packages&#39;,
+ &#39;/usr/lib/pymodules/python2.7&#39;]</pre></td>
+    </tr>
+    <tr>
+      <th>Server time:</th>
+      <td>Thu, 10 Dec 2015 23:29:35 -0500</td>
+    </tr>
+  </table>
+</div>
+
+
+
+
+<div id="traceback">
+  <h2>Traceback <span class="commands"><a href="#" onclick="return switchPastebinFriendly(this);">Switch to copy-and-paste view</a></span></h2>
+  
+  <div id="browserTraceback">
+    <ul class="traceback">
+      
+        <li class="frame django">
+          <code>/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py</code> in <code>get_response</code>
+
+          
+            <div class="context" id="c181730316">
+              
+                <ol start="104" class="pre-context" id="pre181730316"><li onclick="toggle('pre181730316', 'post181730316')"><pre>                    response = middleware_method(request, callback, callback_args, callback_kwargs)</pre></li><li onclick="toggle('pre181730316', 'post181730316')"><pre>                    if response:</pre></li><li onclick="toggle('pre181730316', 'post181730316')"><pre>                        break</pre></li><li onclick="toggle('pre181730316', 'post181730316')"><pre></pre></li><li onclick="toggle('pre181730316', 'post181730316')"><pre>            if response is None:</pre></li><li onclick="toggle('pre181730316', 'post181730316')"><pre>                wrapped_callback = self.make_view_atomic(callback)</pre></li><li onclick="toggle('pre181730316', 'post181730316')"><pre>                try:</pre></li></ol>
+              
+              <ol start="111" class="context-line"><li onclick="toggle('pre181730316', 'post181730316')"><pre>                    response = wrapped_callback(request, *callback_args, **callback_kwargs)</pre> <span>...</span></li></ol>
+              
+                <ol start='112' class="post-context" id="post181730316"><li onclick="toggle('pre181730316', 'post181730316')"><pre>                except Exception as e:</pre></li><li onclick="toggle('pre181730316', 'post181730316')"><pre>                    # If the view raised an exception, run it through exception</pre></li><li onclick="toggle('pre181730316', 'post181730316')"><pre>                    # middleware, and if the exception middleware returns a</pre></li><li onclick="toggle('pre181730316', 'post181730316')"><pre>                    # response, use that. Otherwise, reraise the exception.</pre></li><li onclick="toggle('pre181730316', 'post181730316')"><pre>                    for middleware_method in self._exception_middleware:</pre></li><li onclick="toggle('pre181730316', 'post181730316')"><pre>                        response = middleware_method(request, e)</pre></li></ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '181730316')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v181730316">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>e</td>
+                    <td class="code"><pre>SMTPServerDisconnected(&#39;Connection unexpectedly closed&#39;,)</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>callback_args</td>
+                    <td class="code"><pre>()</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>resolver_match</td>
+                    <td class="code"><pre>ResolverMatch(func=&lt;function add_tarea at 0xad3de64&gt;, args=(), kwargs={}, url_name=&#39;ticket.views.add_tarea&#39;, app_name=&#39;None&#39;, namespace=&#39;&#39;)</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>middleware_method</td>
+                    <td class="code"><pre>&lt;bound method CorsMiddleware.process_view of &lt;corsheaders.middleware.CorsMiddleware object at 0xac3454c&gt;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;django.core.handlers.wsgi.WSGIHandler object at 0xac0e4ec&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>request</td>
+                    <td class="code"><pre>&quot;&lt;WSGIRequest\npath:/add_tarea/,\nGET:&lt;QueryDict: {u&#39;descripcion&#39;: [u&#39;Esto es un problema&#39;], u&#39;asunto&#39;: [u&#39;Automatic Error&#39;], u&#39;cliente&#39;: [u&#39;1&#39;], u&#39;tipo&#39;: [u&#39;1&#39;]}&gt;,\nPOST:&lt;QueryDict: {}&gt;,\nCOOKIES:{},\nMETA:{&#39;CONTENT_LENGTH&#39;: &#39;0&#39;,\n &#39;CONTENT_TYPE&#39;: &#39;text/plain&#39;,\n u&#39;CSRF_COOKIE&#39;: u&#39;QguYgADgI8saQH7ZbrGVJrTof05rkx3h&#39;,\n u&#39;CSRF_COOKIE_USED&#39;: True,\n &#39;DJANGO_SETTINGS_MODULE&#39;: &#39;mysite.settings&#39;,\n &#39;GATEWAY_INTERFACE&#39;: &#39;CGI/1.1&#39;,\n &#39;HOME&#39;: &#39;/root&#39;,\n &#39;HTTP_ACCEPT&#39;: &#39;*/*&#39;,\n &#39;HTTP_ACCEPT_ENCODING&#39;: &#39;gzip, deflate, compress&#39;,\n &#39;HTTP_HOST&#39;: &#39;xiencias.com:8000&#39;,\n &#39;HTTP_USER_AGENT&#39;: &#39;python-requests/2.2.1 CPython/2.7.6 Linux/3.13.0-32-generic&#39;,\n &#39;LANG&#39;: &#39;en_US.UTF-8&#39;,\n &#39;LANGUAGE&#39;: &#39;en_US:en&#39;,\n &#39;LOGNAME&#39;: &#39;root&#39;,\n &#39;MAIL&#39;: &#39;/var/mail/root&#39;,\n &#39;OLDPWD&#39;: &#39;/home/proyectos&#39;,\n &#39;PATH&#39;: &#39;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin&#39;,\n &#39;PATH_INFO&#39;: u&#39;/add_tarea/&#39;,\n &#39;PWD&#39;: &#39;/home/proyectos/tasky&#39;,\n &#39;QUERY_STRING&#39;: &#39;descripcion=Esto+es+un+problema&amp;asunto=Automatic+Error&amp;cliente=1&amp;tipo=1&#39;,\n &#39;REMOTE_ADDR&#39;: &#39;200.106.87.206&#39;,\n &#39;REMOTE_HOST&#39;: &#39;&#39;,\n &#39;REQUEST_METHOD&#39;: &#39;POST&#39;,\n &#39;RUN_MAIN&#39;: &#39;true&#39;,\n &#39;SCRIPT_NAME&#39;: u&#39;&#39;,\n &#39;SERVER_NAME&#39;: &#39;Apps.xiencias.com&#39;,\n &#39;SERVER_PORT&#39;: &#39;8000&#39;,\n &#39;SERVER_PROTOCOL&#39;: &#39;HTTP/1.1&#39;,\n &#39;SERVER_SOFTWARE&#39;: &#39;WSGIServer/0.1 Python/2.7.3&#39;,\n &#39;SHELL&#39;: &#39;/bin/bash&#39;,\n &#39;SHLVL&#39;: &#39;1&#39;,\n &#39;SSH_CLIENT&#39;: &#39;200.106.87.206 40649 5022&#39;,\n &#39;SSH_CONNECTION&#39;: &#39;200.106.87.206 40649 188.166.72.64 5022&#39;,\n &#39;SSH_TTY&#39;: &#39;/dev/pts/1&#39;,\n &#39;TERM&#39;: &#39;xterm&#39;,\n &#39;TZ&#39;: &#39;America/Lima&#39;,\n &#39;USER&#39;: &#39;root&#39;,\n &#39;XDG_SESSION_COOKIE&#39;: &#39;cef874f98bb177041faf423a518414f4-1449807490.137944-493971304&#39;,\n &#39;_&#39;: &#39;/usr/bin/python&#39;,\n &#39;wsgi.errors&#39;: &lt;open file &#39;&lt;stderr&gt;&#39;, mode &#39;w&#39; at 0xb75a30d0&gt;,\n &#39;wsgi.file_wrapper&#39;: &lt;class wsgiref.util.FileWrapper at 0xa84047c&gt;,\n &#39;wsgi.input&#39;: &lt;socket._fileobject object at 0xab11f2c&gt;,\n &#39;wsgi.multiprocess&#39;: False,\n &#39;wsgi.multithread&#39;: True,\n &#39;wsgi.run_once&#39;: False,\n &#39;wsgi.url_scheme&#39;: &#39;http&#39;,\n &#39;wsgi.version&#39;: (1, 0)}&gt;&quot;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>callback</td>
+                    <td class="code"><pre>&lt;function add_tarea at 0xad3de64&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>wrapped_callback</td>
+                    <td class="code"><pre>&lt;function add_tarea at 0xad3de64&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>resolver</td>
+                    <td class="code"><pre>&lt;RegexURLResolver &#39;mysite.urls&#39; (None:None) ^/&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>callback_kwargs</td>
+                    <td class="code"><pre>{}</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>response</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>urlconf</td>
+                    <td class="code"><pre>&#39;mysite.urls&#39;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        <li class="frame django">
+          <code>/usr/local/lib/python2.7/dist-packages/django/views/decorators/csrf.py</code> in <code>wrapped_view</code>
+
+          
+            <div class="context" id="c181730276">
+              
+                <ol start="50" class="pre-context" id="pre181730276"><li onclick="toggle('pre181730276', 'post181730276')"><pre>    &quot;&quot;&quot;</pre></li><li onclick="toggle('pre181730276', 'post181730276')"><pre>    Marks a view function as being exempt from the CSRF view protection.</pre></li><li onclick="toggle('pre181730276', 'post181730276')"><pre>    &quot;&quot;&quot;</pre></li><li onclick="toggle('pre181730276', 'post181730276')"><pre>    # We could just do view_func.csrf_exempt = True, but decorators</pre></li><li onclick="toggle('pre181730276', 'post181730276')"><pre>    # are nicer if they don&#39;t have side-effects, so we return a new</pre></li><li onclick="toggle('pre181730276', 'post181730276')"><pre>    # function.</pre></li><li onclick="toggle('pre181730276', 'post181730276')"><pre>    def wrapped_view(*args, **kwargs):</pre></li></ol>
+              
+              <ol start="57" class="context-line"><li onclick="toggle('pre181730276', 'post181730276')"><pre>        return view_func(*args, **kwargs)</pre> <span>...</span></li></ol>
+              
+                <ol start='58' class="post-context" id="post181730276"><li onclick="toggle('pre181730276', 'post181730276')"><pre>    wrapped_view.csrf_exempt = True</pre></li><li onclick="toggle('pre181730276', 'post181730276')"><pre>    return wraps(view_func, assigned=available_attrs(view_func))(wrapped_view)</pre></li></ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '181730276')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v181730276">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>args</td>
+                    <td class="code"><pre>(&lt;WSGIRequest
+path:/add_tarea/,
+GET:&lt;QueryDict: {u&#39;descripcion&#39;: [u&#39;Esto es un problema&#39;], u&#39;asunto&#39;: [u&#39;Automatic Error&#39;], u&#39;cliente&#39;: [u&#39;1&#39;], u&#39;tipo&#39;: [u&#39;1&#39;]}&gt;,
+POST:&lt;QueryDict: {}&gt;,
+COOKIES:{},
+META:{&#39;CONTENT_LENGTH&#39;: &#39;0&#39;,
+ &#39;CONTENT_TYPE&#39;: &#39;text/plain&#39;,
+ u&#39;CSRF_COOKIE&#39;: u&#39;QguYgADgI8saQH7ZbrGVJrTof05rkx3h&#39;,
+ u&#39;CSRF_COOKIE_USED&#39;: True,
+ &#39;DJANGO_SETTINGS_MODULE&#39;: &#39;mysite.settings&#39;,
+ &#39;GATEWAY_INTERFACE&#39;: &#39;CGI/1.1&#39;,
+ &#39;HOME&#39;: &#39;/root&#39;,
+ &#39;HTTP_ACCEPT&#39;: &#39;*/*&#39;,
+ &#39;HTTP_ACCEPT_ENCODING&#39;: &#39;gzip, deflate, compress&#39;,
+ &#39;HTTP_HOST&#39;: &#39;xiencias.com:8000&#39;,
+ &#39;HTTP_USER_AGENT&#39;: &#39;python-requests/2.2.1 CPython/2.7.6 Linux/3.13.0-32-generic&#39;,
+ &#39;LANG&#39;: &#39;en_US.UTF-8&#39;,
+ &#39;LANGUAGE&#39;: &#39;en_US:en&#39;,
+ &#39;LOGNAME&#39;: &#39;root&#39;,
+ &#39;MAIL&#39;: &#39;/var/mail/root&#39;,
+ &#39;OLDPWD&#39;: &#39;/home/proyectos&#39;,
+ &#39;PATH&#39;: &#39;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin&#39;,
+ &#39;PATH_INFO&#39;: u&#39;/add_tarea/&#39;,
+ &#39;PWD&#39;: &#39;/home/proyectos/tasky&#39;,
+ &#39;QUERY_STRING&#39;: &#39;descripcion=Esto+es+un+problema&amp;asunto=Automatic+Error&amp;cliente=1&amp;tipo=1&#39;,
+ &#39;REMOTE_ADDR&#39;: &#39;200.106.87.206&#39;,
+ &#39;REMOTE_HOST&#39;: &#39;&#39;,
+ &#39;REQUEST_METHOD&#39;: &#39;POST&#39;,
+ &#39;RUN_MAIN&#39;: &#39;true&#39;,
+ &#39;SCRIPT_NAME&#39;: u&#39;&#39;,
+ &#39;SERVER_NAME&#39;: &#39;Apps.xiencias.com&#39;,
+ &#39;SERVER_PORT&#39;: &#39;8000&#39;,
+ &#39;SERVER_PROTOCOL&#39;: &#39;HTTP/1.1&#39;,
+ &#39;SERVER_SOFTWARE&#39;: &#39;WSGIServer/0.1 Python/2.7.3&#39;,
+ &#39;SHELL&#39;: &#39;/bin/bash&#39;,
+ &#39;SHLVL&#39;: &#39;1&#39;,
+ &#39;SSH_CLIENT&#39;: &#39;200.106.87.206 40649 5022&#39;,
+ &#39;SSH_CONNECTION&#39;: &#39;200.106.87.206 40649 188.166.72.64 5022&#39;,
+ &#39;SSH_TTY&#39;: &#39;/dev/pts/1&#39;,
+ &#39;TERM&#39;: &#39;xterm&#39;,
+ &#39;TZ&#39;: &#39;America/Lima&#39;,
+ &#39;USER&#39;: &#39;root&#39;,
+ &#39;XDG_SESSION_COOKIE&#39;: &#39;cef874f98bb177041faf423a518414f4-1449807490.137944-493971304&#39;,
+ &#39;_&#39;: &#39;/usr/bin/python&#39;,
+ &#39;wsgi.errors&#39;: &lt;open file &#39;&lt;stderr&gt;&#39;, mode &#39;w&#39; at 0xb75a30d0&gt;,
+ &#39;wsgi.file_wrapper&#39;: &lt;class wsgiref.util.FileWrapper at 0xa84047c&gt;,
+ &#39;wsgi.input&#39;: &lt;socket._fileobject object at 0xab11f2c&gt;,
+ &#39;wsgi.multiprocess&#39;: False,
+ &#39;wsgi.multithread&#39;: True,
+ &#39;wsgi.run_once&#39;: False,
+ &#39;wsgi.url_scheme&#39;: &#39;http&#39;,
+ &#39;wsgi.version&#39;: (1, 0)}&gt;,)</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>view_func</td>
+                    <td class="code"><pre>&lt;function add_tarea at 0xacc5c6c&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>kwargs</td>
+                    <td class="code"><pre>{}</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        <li class="frame user">
+          <code>/home/proyectos/tasky/ticket/views.py</code> in <code>add_tarea</code>
+
+          
+            <div class="context" id="c181730236">
+              
+                <ol start="95" class="pre-context" id="pre181730236"><li onclick="toggle('pre181730236', 'post181730236')"><pre></pre></li><li onclick="toggle('pre181730236', 'post181730236')"><pre>		fecha_inicio=str(s.split(&#39;.&#39;)[0])</pre></li><li onclick="toggle('pre181730236', 'post181730236')"><pre></pre></li><li onclick="toggle('pre181730236', 'post181730236')"><pre>		cuerpo =  chr(10)+chr(10)+&#39;Asunto :  &#39;+ asunto+ chr(10) + &#39;Generado por : &#39; + str(username)+chr(10)+ &#39;Tipo : &#39; +str(tipo)+chr(10)+&#39;Descripcion : &#39;+descripcion+chr(10)+&#39;Fecha : &#39;+str(fecha_inicio)+chr(10)+&#39;Detalle de la tarea  : &#39;+url</pre></li><li onclick="toggle('pre181730236', 'post181730236')"><pre></pre></li><li onclick="toggle('pre181730236', 'post181730236')"><pre>		email = str(User.objects.get(id=request.user.id).email)</pre></li><li onclick="toggle('pre181730236', 'post181730236')"><pre></pre></li></ol>
+              
+              <ol start="102" class="context-line"><li onclick="toggle('pre181730236', 'post181730236')"><pre>		send_mail(&#39;Tarea &#39;+ str(c.cliente)+&#39; &#39;+asunto, &#39;Se agrego un ticket&#39; + cuerpo, &#39;tasky@xiencias.org&#39;, [email,&#39;soporte_xiencias@xiencias.org&#39;], fail_silently=False)</pre> <span>...</span></li></ol>
+              
+                <ol start='103' class="post-context" id="post181730236"><li onclick="toggle('pre181730236', 'post181730236')"><pre></pre></li><li onclick="toggle('pre181730236', 'post181730236')"><pre>	 	</pre></li><li onclick="toggle('pre181730236', 'post181730236')"><pre></pre></li><li onclick="toggle('pre181730236', 'post181730236')"><pre>		return HttpResponse(&#39;data&#39;, content_type=&quot;application/json&quot;)</pre></li><li onclick="toggle('pre181730236', 'post181730236')"><pre></pre></li><li onclick="toggle('pre181730236', 'post181730236')"><pre></pre></li></ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '181730236')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v181730236">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>username</td>
+                    <td class="code"><pre>u&#39;joel&#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>descripcion</td>
+                    <td class="code"><pre>u&#39;Esto es un problema&#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>c</td>
+                    <td class="code"><pre>&lt;Ticket: Automatic Error&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>tipo_id</td>
+                    <td class="code"><pre>u&#39;1&#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>tipo</td>
+                    <td class="code"><pre>&#39;Incidencia&#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>url</td>
+                    <td class="code"><pre>&#39;http://xiencias.com:8000/mdetalle_ticket/26&#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>request</td>
+                    <td class="code"><pre>&quot;&lt;WSGIRequest\npath:/add_tarea/,\nGET:&lt;QueryDict: {u&#39;descripcion&#39;: [u&#39;Esto es un problema&#39;], u&#39;asunto&#39;: [u&#39;Automatic Error&#39;], u&#39;cliente&#39;: [u&#39;1&#39;], u&#39;tipo&#39;: [u&#39;1&#39;]}&gt;,\nPOST:&lt;QueryDict: {}&gt;,\nCOOKIES:{},\nMETA:{&#39;CONTENT_LENGTH&#39;: &#39;0&#39;,\n &#39;CONTENT_TYPE&#39;: &#39;text/plain&#39;,\n u&#39;CSRF_COOKIE&#39;: u&#39;QguYgADgI8saQH7ZbrGVJrTof05rkx3h&#39;,\n u&#39;CSRF_COOKIE_USED&#39;: True,\n &#39;DJANGO_SETTINGS_MODULE&#39;: &#39;mysite.settings&#39;,\n &#39;GATEWAY_INTERFACE&#39;: &#39;CGI/1.1&#39;,\n &#39;HOME&#39;: &#39;/root&#39;,\n &#39;HTTP_ACCEPT&#39;: &#39;*/*&#39;,\n &#39;HTTP_ACCEPT_ENCODING&#39;: &#39;gzip, deflate, compress&#39;,\n &#39;HTTP_HOST&#39;: &#39;xiencias.com:8000&#39;,\n &#39;HTTP_USER_AGENT&#39;: &#39;python-requests/2.2.1 CPython/2.7.6 Linux/3.13.0-32-generic&#39;,\n &#39;LANG&#39;: &#39;en_US.UTF-8&#39;,\n &#39;LANGUAGE&#39;: &#39;en_US:en&#39;,\n &#39;LOGNAME&#39;: &#39;root&#39;,\n &#39;MAIL&#39;: &#39;/var/mail/root&#39;,\n &#39;OLDPWD&#39;: &#39;/home/proyectos&#39;,\n &#39;PATH&#39;: &#39;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin&#39;,\n &#39;PATH_INFO&#39;: u&#39;/add_tarea/&#39;,\n &#39;PWD&#39;: &#39;/home/proyectos/tasky&#39;,\n &#39;QUERY_STRING&#39;: &#39;descripcion=Esto+es+un+problema&amp;asunto=Automatic+Error&amp;cliente=1&amp;tipo=1&#39;,\n &#39;REMOTE_ADDR&#39;: &#39;200.106.87.206&#39;,\n &#39;REMOTE_HOST&#39;: &#39;&#39;,\n &#39;REQUEST_METHOD&#39;: &#39;POST&#39;,\n &#39;RUN_MAIN&#39;: &#39;true&#39;,\n &#39;SCRIPT_NAME&#39;: u&#39;&#39;,\n &#39;SERVER_NAME&#39;: &#39;Apps.xiencias.com&#39;,\n &#39;SERVER_PORT&#39;: &#39;8000&#39;,\n &#39;SERVER_PROTOCOL&#39;: &#39;HTTP/1.1&#39;,\n &#39;SERVER_SOFTWARE&#39;: &#39;WSGIServer/0.1 Python/2.7.3&#39;,\n &#39;SHELL&#39;: &#39;/bin/bash&#39;,\n &#39;SHLVL&#39;: &#39;1&#39;,\n &#39;SSH_CLIENT&#39;: &#39;200.106.87.206 40649 5022&#39;,\n &#39;SSH_CONNECTION&#39;: &#39;200.106.87.206 40649 188.166.72.64 5022&#39;,\n &#39;SSH_TTY&#39;: &#39;/dev/pts/1&#39;,\n &#39;TERM&#39;: &#39;xterm&#39;,\n &#39;TZ&#39;: &#39;America/Lima&#39;,\n &#39;USER&#39;: &#39;root&#39;,\n &#39;XDG_SESSION_COOKIE&#39;: &#39;cef874f98bb177041faf423a518414f4-1449807490.137944-493971304&#39;,\n &#39;_&#39;: &#39;/usr/bin/python&#39;,\n &#39;wsgi.errors&#39;: &lt;open file &#39;&lt;stderr&gt;&#39;, mode &#39;w&#39; at 0xb75a30d0&gt;,\n &#39;wsgi.file_wrapper&#39;: &lt;class wsgiref.util.FileWrapper at 0xa84047c&gt;,\n &#39;wsgi.input&#39;: &lt;socket._fileobject object at 0xab11f2c&gt;,\n &#39;wsgi.multiprocess&#39;: False,\n &#39;wsgi.multithread&#39;: True,\n &#39;wsgi.run_once&#39;: False,\n &#39;wsgi.url_scheme&#39;: &#39;http&#39;,\n &#39;wsgi.version&#39;: (1, 0)}&gt;&quot;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>message</td>
+                    <td class="code"><pre>&#39;Joel agrego una tarea Automatic Error-at-14-26&#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>asunto</td>
+                    <td class="code"><pre>u&#39;Automatic Error&#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>empresa</td>
+                    <td class="code"><pre>u&#39;1&#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>email</td>
+                    <td class="code"><pre>&#39;joelunmsm@gmail.com&#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>cuerpo</td>
+                    <td class="code"><pre>u&#39;\n\nAsunto :  Automatic Error\nGenerado por : joel\nTipo : Incidencia\nDescripcion : Esto es un problema\nFecha : 2015-12-10 23:29:33\nDetalle de la tarea  : http://xiencias.com:8000/mdetalle_ticket/26&#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>totalticket</td>
+                    <td class="code"><pre>14</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>s</td>
+                    <td class="code"><pre>&#39;2015-12-10 23:29:33.039311&#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>fecha_inicio</td>
+                    <td class="code"><pre>&#39;2015-12-10 23:29:33&#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>user</td>
+                    <td class="code"><pre>&lt;User: joel&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>first_name</td>
+                    <td class="code"><pre>&#39;Joel&#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>redis_publisher</td>
+                    <td class="code"><pre>&lt;ws4redis.publisher.RedisPublisher object at 0xad3f9ac&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>x</td>
+                    <td class="code"><pre>&lt;User: joel&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>grupo</td>
+                    <td class="code"><pre>&#39;Soporte&#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>id</td>
+                    <td class="code"><pre>8L</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        <li class="frame django">
+          <code>/usr/local/lib/python2.7/dist-packages/django/core/mail/__init__.py</code> in <code>send_mail</code>
+
+          
+            <div class="context" id="c181730116">
+              
+                <ol start="55" class="pre-context" id="pre181730116"><li onclick="toggle('pre181730116', 'post181730116')"><pre>                                    password=auth_password,</pre></li><li onclick="toggle('pre181730116', 'post181730116')"><pre>                                    fail_silently=fail_silently)</pre></li><li onclick="toggle('pre181730116', 'post181730116')"><pre>    mail = EmailMultiAlternatives(subject, message, from_email, recipient_list,</pre></li><li onclick="toggle('pre181730116', 'post181730116')"><pre>                                  connection=connection)</pre></li><li onclick="toggle('pre181730116', 'post181730116')"><pre>    if html_message:</pre></li><li onclick="toggle('pre181730116', 'post181730116')"><pre>        mail.attach_alternative(html_message, &#39;text/html&#39;)</pre></li><li onclick="toggle('pre181730116', 'post181730116')"><pre></pre></li></ol>
+              
+              <ol start="62" class="context-line"><li onclick="toggle('pre181730116', 'post181730116')"><pre>    return mail.send()</pre> <span>...</span></li></ol>
+              
+                <ol start='63' class="post-context" id="post181730116"><li onclick="toggle('pre181730116', 'post181730116')"><pre></pre></li><li onclick="toggle('pre181730116', 'post181730116')"><pre></pre></li><li onclick="toggle('pre181730116', 'post181730116')"><pre>def send_mass_mail(datatuple, fail_silently=False, auth_user=None,</pre></li><li onclick="toggle('pre181730116', 'post181730116')"><pre>                   auth_password=None, connection=None):</pre></li><li onclick="toggle('pre181730116', 'post181730116')"><pre>    &quot;&quot;&quot;</pre></li><li onclick="toggle('pre181730116', 'post181730116')"><pre>    Given a datatuple of (subject, message, from_email, recipient_list), sends</pre></li></ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '181730116')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v181730116">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>fail_silently</td>
+                    <td class="code"><pre>False</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>html_message</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>recipient_list</td>
+                    <td class="code"><pre>[&#39;joelunmsm@gmail.com&#39;, &#39;soporte_xiencias@xiencias.org&#39;]</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>from_email</td>
+                    <td class="code"><pre>&#39;tasky@xiencias.org&#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>connection</td>
+                    <td class="code"><pre>&lt;django.core.mail.backends.smtp.EmailBackend object at 0xad4b9cc&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>mail</td>
+                    <td class="code"><pre>&lt;django.core.mail.message.EmailMultiAlternatives object at 0xad4ee4c&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>auth_user</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>message</td>
+                    <td class="code"><pre>u&#39;Se agrego un ticket\n\nAsunto :  Automatic Error\nGenerado por : joel\nTipo : Incidencia\nDescripcion : Esto es un problema\nFecha : 2015-12-10 23:29:33\nDetalle de la tarea  : http://xiencias.com:8000/mdetalle_ticket/26&#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>auth_password</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>subject</td>
+                    <td class="code"><pre>u&#39;Tarea joel Automatic Error&#39;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        <li class="frame django">
+          <code>/usr/local/lib/python2.7/dist-packages/django/core/mail/message.py</code> in <code>send</code>
+
+          
+            <div class="context" id="c181730196">
+              
+                <ol start="279" class="pre-context" id="pre181730196"><li onclick="toggle('pre181730196', 'post181730196')"><pre></pre></li><li onclick="toggle('pre181730196', 'post181730196')"><pre>    def send(self, fail_silently=False):</pre></li><li onclick="toggle('pre181730196', 'post181730196')"><pre>        &quot;&quot;&quot;Sends the email message.&quot;&quot;&quot;</pre></li><li onclick="toggle('pre181730196', 'post181730196')"><pre>        if not self.recipients():</pre></li><li onclick="toggle('pre181730196', 'post181730196')"><pre>            # Don&#39;t bother creating the network connection if there&#39;s nobody to</pre></li><li onclick="toggle('pre181730196', 'post181730196')"><pre>            # send to.</pre></li><li onclick="toggle('pre181730196', 'post181730196')"><pre>            return 0</pre></li></ol>
+              
+              <ol start="286" class="context-line"><li onclick="toggle('pre181730196', 'post181730196')"><pre>        return self.get_connection(fail_silently).send_messages([self])</pre> <span>...</span></li></ol>
+              
+                <ol start='287' class="post-context" id="post181730196"><li onclick="toggle('pre181730196', 'post181730196')"><pre></pre></li><li onclick="toggle('pre181730196', 'post181730196')"><pre>    def attach(self, filename=None, content=None, mimetype=None):</pre></li><li onclick="toggle('pre181730196', 'post181730196')"><pre>        &quot;&quot;&quot;</pre></li><li onclick="toggle('pre181730196', 'post181730196')"><pre>        Attaches a file with the given filename and content. The filename can</pre></li><li onclick="toggle('pre181730196', 'post181730196')"><pre>        be omitted and the mimetype is guessed, if not provided.</pre></li><li onclick="toggle('pre181730196', 'post181730196')"><pre></pre></li></ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '181730196')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v181730196">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>fail_silently</td>
+                    <td class="code"><pre>False</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;django.core.mail.message.EmailMultiAlternatives object at 0xad4ee4c&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        <li class="frame django">
+          <code>/usr/local/lib/python2.7/dist-packages/django/core/mail/backends/smtp.py</code> in <code>send_messages</code>
+
+          
+            <div class="context" id="c181730156">
+              
+                <ol start="92" class="pre-context" id="pre181730156"><li onclick="toggle('pre181730156', 'post181730156')"><pre>            new_conn_created = self.open()</pre></li><li onclick="toggle('pre181730156', 'post181730156')"><pre>            if not self.connection:</pre></li><li onclick="toggle('pre181730156', 'post181730156')"><pre>                # We failed silently on open().</pre></li><li onclick="toggle('pre181730156', 'post181730156')"><pre>                # Trying to send would be pointless.</pre></li><li onclick="toggle('pre181730156', 'post181730156')"><pre>                return</pre></li><li onclick="toggle('pre181730156', 'post181730156')"><pre>            num_sent = 0</pre></li><li onclick="toggle('pre181730156', 'post181730156')"><pre>            for message in email_messages:</pre></li></ol>
+              
+              <ol start="99" class="context-line"><li onclick="toggle('pre181730156', 'post181730156')"><pre>                sent = self._send(message)</pre> <span>...</span></li></ol>
+              
+                <ol start='100' class="post-context" id="post181730156"><li onclick="toggle('pre181730156', 'post181730156')"><pre>                if sent:</pre></li><li onclick="toggle('pre181730156', 'post181730156')"><pre>                    num_sent += 1</pre></li><li onclick="toggle('pre181730156', 'post181730156')"><pre>            if new_conn_created:</pre></li><li onclick="toggle('pre181730156', 'post181730156')"><pre>                self.close()</pre></li><li onclick="toggle('pre181730156', 'post181730156')"><pre>        return num_sent</pre></li><li onclick="toggle('pre181730156', 'post181730156')"><pre></pre></li></ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '181730156')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v181730156">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>email_messages</td>
+                    <td class="code"><pre>[&lt;django.core.mail.message.EmailMultiAlternatives object at 0xad4ee4c&gt;]</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>message</td>
+                    <td class="code"><pre>&lt;django.core.mail.message.EmailMultiAlternatives object at 0xad4ee4c&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>num_sent</td>
+                    <td class="code"><pre>0</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>new_conn_created</td>
+                    <td class="code"><pre>True</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;django.core.mail.backends.smtp.EmailBackend object at 0xad4b9cc&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        <li class="frame django">
+          <code>/usr/local/lib/python2.7/dist-packages/django/core/mail/backends/smtp.py</code> in <code>_send</code>
+
+          
+            <div class="context" id="c181730076">
+              
+                <ol start="108" class="pre-context" id="pre181730076"><li onclick="toggle('pre181730076', 'post181730076')"><pre>        if not email_message.recipients():</pre></li><li onclick="toggle('pre181730076', 'post181730076')"><pre>            return False</pre></li><li onclick="toggle('pre181730076', 'post181730076')"><pre>        from_email = sanitize_address(email_message.from_email, email_message.encoding)</pre></li><li onclick="toggle('pre181730076', 'post181730076')"><pre>        recipients = [sanitize_address(addr, email_message.encoding)</pre></li><li onclick="toggle('pre181730076', 'post181730076')"><pre>                      for addr in email_message.recipients()]</pre></li><li onclick="toggle('pre181730076', 'post181730076')"><pre>        message = email_message.message()</pre></li><li onclick="toggle('pre181730076', 'post181730076')"><pre>        try:</pre></li></ol>
+              
+              <ol start="115" class="context-line"><li onclick="toggle('pre181730076', 'post181730076')"><pre>            self.connection.sendmail(from_email, recipients, message.as_bytes(linesep=&#39;\r\n&#39;))</pre> <span>...</span></li></ol>
+              
+                <ol start='116' class="post-context" id="post181730076"><li onclick="toggle('pre181730076', 'post181730076')"><pre>        except smtplib.SMTPException:</pre></li><li onclick="toggle('pre181730076', 'post181730076')"><pre>            if not self.fail_silently:</pre></li><li onclick="toggle('pre181730076', 'post181730076')"><pre>                raise</pre></li><li onclick="toggle('pre181730076', 'post181730076')"><pre>            return False</pre></li><li onclick="toggle('pre181730076', 'post181730076')"><pre>        return True</pre></li></ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '181730076')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v181730076">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>addr</td>
+                    <td class="code"><pre>&#39;soporte_xiencias@xiencias.org&#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>recipients</td>
+                    <td class="code"><pre>[u&#39;joelunmsm@gmail.com&#39;, u&#39;soporte_xiencias@xiencias.org&#39;]</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;django.core.mail.backends.smtp.EmailBackend object at 0xad4b9cc&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>from_email</td>
+                    <td class="code"><pre>u&#39;tasky@xiencias.org&#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>email_message</td>
+                    <td class="code"><pre>&lt;django.core.mail.message.EmailMultiAlternatives object at 0xad4ee4c&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>message</td>
+                    <td class="code"><pre>&lt;django.core.mail.message.SafeMIMEText instance at 0xad4efcc&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        <li class="frame user">
+          <code>/usr/lib/python2.7/smtplib.py</code> in <code>sendmail</code>
+
+          
+            <div class="context" id="c181730036">
+              
+                <ol start="729" class="pre-context" id="pre181730036"><li onclick="toggle('pre181730036', 'post181730036')"><pre>                senderrs[each] = (code, resp)</pre></li><li onclick="toggle('pre181730036', 'post181730036')"><pre>        if len(senderrs) == len(to_addrs):</pre></li><li onclick="toggle('pre181730036', 'post181730036')"><pre>            # the server refused all our recipients</pre></li><li onclick="toggle('pre181730036', 'post181730036')"><pre>            self.rset()</pre></li><li onclick="toggle('pre181730036', 'post181730036')"><pre>            raise SMTPRecipientsRefused(senderrs)</pre></li><li onclick="toggle('pre181730036', 'post181730036')"><pre>        (code, resp) = self.data(msg)</pre></li><li onclick="toggle('pre181730036', 'post181730036')"><pre>        if code != 250:</pre></li></ol>
+              
+              <ol start="736" class="context-line"><li onclick="toggle('pre181730036', 'post181730036')"><pre>            self.rset()</pre> <span>...</span></li></ol>
+              
+                <ol start='737' class="post-context" id="post181730036"><li onclick="toggle('pre181730036', 'post181730036')"><pre>            raise SMTPDataError(code, resp)</pre></li><li onclick="toggle('pre181730036', 'post181730036')"><pre>        #if we got here then somebody got our mail</pre></li><li onclick="toggle('pre181730036', 'post181730036')"><pre>        return senderrs</pre></li><li onclick="toggle('pre181730036', 'post181730036')"><pre></pre></li><li onclick="toggle('pre181730036', 'post181730036')"><pre></pre></li><li onclick="toggle('pre181730036', 'post181730036')"><pre>    def close(self):</pre></li></ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '181730036')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v181730036">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>code</td>
+                    <td class="code"><pre>550</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>from_addr</td>
+                    <td class="code"><pre>u&#39;tasky@xiencias.org&#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>esmtp_opts</td>
+                    <td class="code"><pre>[&#39;size=517&#39;]</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>resp</td>
+                    <td class="code"><pre>&#39;Error EV505 IP 188.166.72.64 no permitida&#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;smtplib.SMTP instance at 0xad4e42c&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>senderrs</td>
+                    <td class="code"><pre>{}</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>each</td>
+                    <td class="code"><pre>u&#39;soporte_xiencias@xiencias.org&#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>msg</td>
+                    <td class="code"><pre>&#39;MIME-Version: 1.0\nContent-Type: text/plain; charset=&quot;utf-8&quot;\nContent-Transfer-Encoding: 7bit\nSubject: Tarea joel Automatic Error\nFrom: tasky@xiencias.org\nTo: joelunmsm@gmail.com, soporte_xiencias@xiencias.org\nDate: Fri, 11 Dec 2015 04:29:34 -0000\nMessage-ID: &lt;20151211042934.2628.3412@Apps.xiencias.com&gt;\n\nSe agrego un ticket\n\nAsunto :  Automatic Error\nGenerado por : joel\nTipo : Incidencia\nDescripcion : Esto es un problema\nFecha : 2015-12-10 23:29:33\nDetalle de la tarea  : http://xiencias.com:8000/mdetalle_ticket/26&#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>to_addrs</td>
+                    <td class="code"><pre>[u&#39;joelunmsm@gmail.com&#39;, u&#39;soporte_xiencias@xiencias.org&#39;]</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>rcpt_options</td>
+                    <td class="code"><pre>[]</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>mail_options</td>
+                    <td class="code"><pre>[]</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        <li class="frame user">
+          <code>/usr/lib/python2.7/smtplib.py</code> in <code>rset</code>
+
+          
+            <div class="context" id="c181727356">
+              
+                <ol start="453" class="pre-context" id="pre181727356"><li onclick="toggle('pre181727356', 'post181727356')"><pre>        &quot;&quot;&quot;SMTP &#39;help&#39; command.</pre></li><li onclick="toggle('pre181727356', 'post181727356')"><pre>        Returns help text from server.&quot;&quot;&quot;</pre></li><li onclick="toggle('pre181727356', 'post181727356')"><pre>        self.putcmd(&quot;help&quot;, args)</pre></li><li onclick="toggle('pre181727356', 'post181727356')"><pre>        return self.getreply()[1]</pre></li><li onclick="toggle('pre181727356', 'post181727356')"><pre></pre></li><li onclick="toggle('pre181727356', 'post181727356')"><pre>    def rset(self):</pre></li><li onclick="toggle('pre181727356', 'post181727356')"><pre>        &quot;&quot;&quot;SMTP &#39;rset&#39; command -- resets session.&quot;&quot;&quot;</pre></li></ol>
+              
+              <ol start="460" class="context-line"><li onclick="toggle('pre181727356', 'post181727356')"><pre>        return self.docmd(&quot;rset&quot;)</pre> <span>...</span></li></ol>
+              
+                <ol start='461' class="post-context" id="post181727356"><li onclick="toggle('pre181727356', 'post181727356')"><pre></pre></li><li onclick="toggle('pre181727356', 'post181727356')"><pre>    def noop(self):</pre></li><li onclick="toggle('pre181727356', 'post181727356')"><pre>        &quot;&quot;&quot;SMTP &#39;noop&#39; command -- doesn&#39;t do anything :&gt;&quot;&quot;&quot;</pre></li><li onclick="toggle('pre181727356', 'post181727356')"><pre>        return self.docmd(&quot;noop&quot;)</pre></li><li onclick="toggle('pre181727356', 'post181727356')"><pre></pre></li><li onclick="toggle('pre181727356', 'post181727356')"><pre>    def mail(self, sender, options=[]):</pre></li></ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '181727356')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v181727356">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;smtplib.SMTP instance at 0xad4e42c&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        <li class="frame user">
+          <code>/usr/lib/python2.7/smtplib.py</code> in <code>docmd</code>
+
+          
+            <div class="context" id="c181729996">
+              
+                <ol start="378" class="pre-context" id="pre181729996"><li onclick="toggle('pre181729996', 'post181729996')"><pre>        if self.debuglevel &gt; 0:</pre></li><li onclick="toggle('pre181729996', 'post181729996')"><pre>            print&gt;&gt;stderr, &#39;reply: retcode (%s); Msg: %s&#39; % (errcode, errmsg)</pre></li><li onclick="toggle('pre181729996', 'post181729996')"><pre>        return errcode, errmsg</pre></li><li onclick="toggle('pre181729996', 'post181729996')"><pre></pre></li><li onclick="toggle('pre181729996', 'post181729996')"><pre>    def docmd(self, cmd, args=&quot;&quot;):</pre></li><li onclick="toggle('pre181729996', 'post181729996')"><pre>        &quot;&quot;&quot;Send a command, and return its response code.&quot;&quot;&quot;</pre></li><li onclick="toggle('pre181729996', 'post181729996')"><pre>        self.putcmd(cmd, args)</pre></li></ol>
+              
+              <ol start="385" class="context-line"><li onclick="toggle('pre181729996', 'post181729996')"><pre>        return self.getreply()</pre> <span>...</span></li></ol>
+              
+                <ol start='386' class="post-context" id="post181729996"><li onclick="toggle('pre181729996', 'post181729996')"><pre></pre></li><li onclick="toggle('pre181729996', 'post181729996')"><pre>    # std smtp commands</pre></li><li onclick="toggle('pre181729996', 'post181729996')"><pre>    def helo(self, name=&#39;&#39;):</pre></li><li onclick="toggle('pre181729996', 'post181729996')"><pre>        &quot;&quot;&quot;SMTP &#39;helo&#39; command.</pre></li><li onclick="toggle('pre181729996', 'post181729996')"><pre>        Hostname to send for this command defaults to the FQDN of the local</pre></li><li onclick="toggle('pre181729996', 'post181729996')"><pre>        host.</pre></li></ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '181729996')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v181729996">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;smtplib.SMTP instance at 0xad4e42c&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>cmd</td>
+                    <td class="code"><pre>&#39;rset&#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>args</td>
+                    <td class="code"><pre>&#39;&#39;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        <li class="frame user">
+          <code>/usr/lib/python2.7/smtplib.py</code> in <code>getreply</code>
+
+          
+            <div class="context" id="c181727916">
+              
+                <ol start="354" class="pre-context" id="pre181727916"><li onclick="toggle('pre181727916', 'post181727916')"><pre>                line = self.file.readline()</pre></li><li onclick="toggle('pre181727916', 'post181727916')"><pre>            except socket.error as e:</pre></li><li onclick="toggle('pre181727916', 'post181727916')"><pre>                self.close()</pre></li><li onclick="toggle('pre181727916', 'post181727916')"><pre>                raise SMTPServerDisconnected(&quot;Connection unexpectedly closed: &quot;</pre></li><li onclick="toggle('pre181727916', 'post181727916')"><pre>                                             + str(e))</pre></li><li onclick="toggle('pre181727916', 'post181727916')"><pre>            if line == &#39;&#39;:</pre></li><li onclick="toggle('pre181727916', 'post181727916')"><pre>                self.close()</pre></li></ol>
+              
+              <ol start="361" class="context-line"><li onclick="toggle('pre181727916', 'post181727916')"><pre>                raise SMTPServerDisconnected(&quot;Connection unexpectedly closed&quot;)</pre> <span>...</span></li></ol>
+              
+                <ol start='362' class="post-context" id="post181727916"><li onclick="toggle('pre181727916', 'post181727916')"><pre>            if self.debuglevel &gt; 0:</pre></li><li onclick="toggle('pre181727916', 'post181727916')"><pre>                print&gt;&gt;stderr, &#39;reply:&#39;, repr(line)</pre></li><li onclick="toggle('pre181727916', 'post181727916')"><pre>            resp.append(line[4:].strip())</pre></li><li onclick="toggle('pre181727916', 'post181727916')"><pre>            code = line[:3]</pre></li><li onclick="toggle('pre181727916', 'post181727916')"><pre>            # Check that the error code is syntactically correct.</pre></li><li onclick="toggle('pre181727916', 'post181727916')"><pre>            # Don&#39;t attempt to read a continuation line if it is broken.</pre></li></ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '181727916')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v181727916">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>line</td>
+                    <td class="code"><pre>&#39;&#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>resp</td>
+                    <td class="code"><pre>[]</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;smtplib.SMTP instance at 0xad4e42c&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+    </ul>
+  </div>
+  
+  <form action="http://dpaste.com/" name="pasteform" id="pasteform" method="post">
+
+  <div id="pastebinTraceback" class="pastebin">
+    <input type="hidden" name="language" value="PythonConsole">
+    <input type="hidden" name="title" value="SMTPServerDisconnected at /add_tarea/">
+    <input type="hidden" name="source" value="Django Dpaste Agent">
+    <input type="hidden" name="poster" value="Django">
+    <textarea name="content" id="traceback_area" cols="140" rows="25">
+Environment:
+
+
+Request Method: POST
+Request URL: http://xiencias.com:8000/add_tarea/?descripcion=Esto+es+un+problema&amp;asunto=Automatic+Error&amp;cliente=1&amp;tipo=1
+
+Django Version: 1.7.4
+Python Version: 2.7.3
+Installed Applications:
+(&#39;django.contrib.admin&#39;,
+ &#39;django.contrib.auth&#39;,
+ &#39;django.contrib.contenttypes&#39;,
+ &#39;django.contrib.sessions&#39;,
+ &#39;django.contrib.messages&#39;,
+ &#39;django.contrib.staticfiles&#39;,
+ &#39;ticket&#39;,
+ &#39;monitoreo&#39;,
+ &#39;ws4redis&#39;,
+ &#39;corsheaders&#39;)
+Installed Middleware:
+(&#39;django.contrib.sessions.middleware.SessionMiddleware&#39;,
+ &#39;django.middleware.common.CommonMiddleware&#39;,
+ &#39;django.middleware.csrf.CsrfViewMiddleware&#39;,
+ &#39;django.contrib.auth.middleware.AuthenticationMiddleware&#39;,
+ &#39;django.contrib.auth.middleware.SessionAuthenticationMiddleware&#39;,
+ &#39;django.contrib.messages.middleware.MessageMiddleware&#39;,
+ &#39;django.middleware.clickjacking.XFrameOptionsMiddleware&#39;,
+ &#39;corsheaders.middleware.CorsMiddleware&#39;)
+
+
+Traceback:
+File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py" in get_response
+  111.                     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+File "/usr/local/lib/python2.7/dist-packages/django/views/decorators/csrf.py" in wrapped_view
+  57.         return view_func(*args, **kwargs)
+File "/home/proyectos/tasky/ticket/views.py" in add_tarea
+  102. 		send_mail(&#39;Tarea &#39;+ str(c.cliente)+&#39; &#39;+asunto, &#39;Se agrego un ticket&#39; + cuerpo, &#39;tasky@xiencias.org&#39;, [email,&#39;soporte_xiencias@xiencias.org&#39;], fail_silently=False)
+File "/usr/local/lib/python2.7/dist-packages/django/core/mail/__init__.py" in send_mail
+  62.     return mail.send()
+File "/usr/local/lib/python2.7/dist-packages/django/core/mail/message.py" in send
+  286.         return self.get_connection(fail_silently).send_messages([self])
+File "/usr/local/lib/python2.7/dist-packages/django/core/mail/backends/smtp.py" in send_messages
+  99.                 sent = self._send(message)
+File "/usr/local/lib/python2.7/dist-packages/django/core/mail/backends/smtp.py" in _send
+  115.             self.connection.sendmail(from_email, recipients, message.as_bytes(linesep=&#39;\r\n&#39;))
+File "/usr/lib/python2.7/smtplib.py" in sendmail
+  736.             self.rset()
+File "/usr/lib/python2.7/smtplib.py" in rset
+  460.         return self.docmd(&quot;rset&quot;)
+File "/usr/lib/python2.7/smtplib.py" in docmd
+  385.         return self.getreply()
+File "/usr/lib/python2.7/smtplib.py" in getreply
+  361.                 raise SMTPServerDisconnected(&quot;Connection unexpectedly closed&quot;)
+
+Exception Type: SMTPServerDisconnected at /add_tarea/
+Exception Value: Connection unexpectedly closed
+</textarea>
+  <br><br>
+  <input type="submit" value="Share this traceback on a public Web site">
+  </div>
+</form>
+</div>
+
+
+
+<div id="requestinfo">
+  <h2>Request information</h2>
+
+
+  <h3 id="get-info">GET</h3>
+  
+    <table class="req">
+      <thead>
+        <tr>
+          <th>Variable</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+          <tr>
+            <td>descripcion</td>
+            <td class="code"><pre>u&#39;Esto es un problema&#39;</pre></td>
+          </tr>
+        
+          <tr>
+            <td>asunto</td>
+            <td class="code"><pre>u&#39;Automatic Error&#39;</pre></td>
+          </tr>
+        
+          <tr>
+            <td>cliente</td>
+            <td class="code"><pre>u&#39;1&#39;</pre></td>
+          </tr>
+        
+          <tr>
+            <td>tipo</td>
+            <td class="code"><pre>u&#39;1&#39;</pre></td>
+          </tr>
+        
+      </tbody>
+    </table>
+  
+
+  <h3 id="post-info">POST</h3>
+  
+    <p>No POST data</p>
+  
+  <h3 id="files-info">FILES</h3>
+  
+    <p>No FILES data</p>
+  
+
+
+  <h3 id="cookie-info">COOKIES</h3>
+  
+    <p>No cookie data</p>
+  
+
+  <h3 id="meta-info">META</h3>
+  <table class="req">
+    <thead>
+      <tr>
+        <th>Variable</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr>
+          <td>RUN_MAIN</td>
+          <td class="code"><pre>&#39;true&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SERVER_SOFTWARE</td>
+          <td class="code"><pre>&#39;WSGIServer/0.1 Python/2.7.3&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SCRIPT_NAME</td>
+          <td class="code"><pre>u&#39;&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>REQUEST_METHOD</td>
+          <td class="code"><pre>&#39;POST&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SERVER_PROTOCOL</td>
+          <td class="code"><pre>&#39;HTTP/1.1&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HOME</td>
+          <td class="code"><pre>&#39;/root&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANG</td>
+          <td class="code"><pre>&#39;en_US.UTF-8&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SHELL</td>
+          <td class="code"><pre>&#39;/bin/bash&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SERVER_PORT</td>
+          <td class="code"><pre>&#39;8000&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_HOST</td>
+          <td class="code"><pre>&#39;xiencias.com:8000&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_ACCEPT</td>
+          <td class="code"><pre>&#39;*/*&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.version</td>
+          <td class="code"><pre>(1, 0)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.run_once</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SSH_TTY</td>
+          <td class="code"><pre>&#39;/dev/pts/1&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.errors</td>
+          <td class="code"><pre>&lt;open file &#39;&lt;stderr&gt;&#39;, mode &#39;w&#39; at 0xb75a30d0&gt;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.multiprocess</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MAIL</td>
+          <td class="code"><pre>&#39;/var/mail/root&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SSH_CONNECTION</td>
+          <td class="code"><pre>&#39;200.106.87.206 40649 188.166.72.64 5022&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PATH_INFO</td>
+          <td class="code"><pre>u&#39;/add_tarea/&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SSH_CLIENT</td>
+          <td class="code"><pre>&#39;200.106.87.206 40649 5022&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOGNAME</td>
+          <td class="code"><pre>&#39;root&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USER</td>
+          <td class="code"><pre>&#39;root&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>QUERY_STRING</td>
+          <td class="code"><pre>&#39;descripcion=Esto+es+un+problema&amp;asunto=Automatic+Error&amp;cliente=1&amp;tipo=1&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PATH</td>
+          <td class="code"><pre>&#39;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TERM</td>
+          <td class="code"><pre>&#39;xterm&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_USER_AGENT</td>
+          <td class="code"><pre>&#39;python-requests/2.2.1 CPython/2.7.6 Linux/3.13.0-32-generic&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TZ</td>
+          <td class="code"><pre>&#39;America/Lima&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>XDG_SESSION_COOKIE</td>
+          <td class="code"><pre>&#39;cef874f98bb177041faf423a518414f4-1449807490.137944-493971304&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGE</td>
+          <td class="code"><pre>&#39;en_US:en&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>REMOTE_ADDR</td>
+          <td class="code"><pre>&#39;200.106.87.206&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SHLVL</td>
+          <td class="code"><pre>&#39;1&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.url_scheme</td>
+          <td class="code"><pre>&#39;http&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CONTENT_LENGTH</td>
+          <td class="code"><pre>&#39;0&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.input</td>
+          <td class="code"><pre>&lt;socket._fileobject object at 0xab11f2c&gt;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.multithread</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>_</td>
+          <td class="code"><pre>&#39;/usr/bin/python&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SERVER_NAME</td>
+          <td class="code"><pre>&#39;Apps.xiencias.com&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>GATEWAY_INTERFACE</td>
+          <td class="code"><pre>&#39;CGI/1.1&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE</td>
+          <td class="code"><pre>u&#39;QguYgADgI8saQH7ZbrGVJrTof05rkx3h&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>OLDPWD</td>
+          <td class="code"><pre>&#39;/home/proyectos&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_USED</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PWD</td>
+          <td class="code"><pre>&#39;/home/proyectos/tasky&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DJANGO_SETTINGS_MODULE</td>
+          <td class="code"><pre>&#39;mysite.settings&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CONTENT_TYPE</td>
+          <td class="code"><pre>&#39;text/plain&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.file_wrapper</td>
+          <td class="code"><pre>&#39;&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>REMOTE_HOST</td>
+          <td class="code"><pre>&#39;&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_ACCEPT_ENCODING</td>
+          <td class="code"><pre>&#39;gzip, deflate, compress&#39;</pre></td>
+        </tr>
+      
+    </tbody>
+  </table>
+
+
+  <h3 id="settings-info">Settings</h3>
+  <h4>Using settings module <code>mysite.settings</code></h4>
+  <table class="req">
+    <thead>
+      <tr>
+        <th>Setting</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr>
+          <td>WS4REDIS_PREFIX</td>
+          <td class="code"><pre>&#39;demo&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_L10N</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_THOUSAND_SEPARATOR</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_SECURE</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGE_CODE</td>
+          <td class="code"><pre>&#39;en-us&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ROOT_URLCONF</td>
+          <td class="code"><pre>&#39;mysite.urls&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MANAGERS</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>BASE_DIR</td>
+          <td class="code"><pre>&#39;/home/proyectos/tasky&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEST_NON_SERIALIZED_APPS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_CHARSET</td>
+          <td class="code"><pre>&#39;utf-8&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_SERIALIZER</td>
+          <td class="code"><pre>&#39;django.contrib.sessions.serializers.JSONSerializer&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STATIC_ROOT</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ALLOWED_HOSTS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MESSAGE_STORAGE</td>
+          <td class="code"><pre>&#39;django.contrib.messages.storage.fallback.FallbackStorage&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_SUBJECT_PREFIX</td>
+          <td class="code"><pre>&#39;[Django] &#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SEND_BROKEN_LINK_EMAILS</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STATICFILES_FINDERS</td>
+          <td class="code"><pre>(&#39;django.contrib.staticfiles.finders.FileSystemFinder&#39;,
+ &#39;django.contrib.staticfiles.finders.AppDirectoriesFinder&#39;)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_CACHE_ALIAS</td>
+          <td class="code"><pre>&#39;default&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_DOMAIN</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_NAME</td>
+          <td class="code"><pre>&#39;sessionid&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ADMIN_FOR</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TIME_INPUT_FORMATS</td>
+          <td class="code"><pre>(&#39;%H:%M:%S&#39;, &#39;%H:%M:%S.%f&#39;, &#39;%H:%M&#39;)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATABASES</td>
+          <td class="code"><pre>{&#39;default&#39;: {&#39;ATOMIC_REQUESTS&#39;: False,
+             &#39;AUTOCOMMIT&#39;: True,
+             &#39;CONN_MAX_AGE&#39;: 0,
+             &#39;ENGINE&#39;: &#39;django.db.backends.mysql&#39;,
+             &#39;HOST&#39;: &#39;188.166.72.64&#39;,
+             &#39;NAME&#39;: &#39;tasky&#39;,
+             &#39;OPTIONS&#39;: {},
+             &#39;PASSWORD&#39;: u&#39;********************&#39;,
+             &#39;PORT&#39;: &#39;3306&#39;,
+             &#39;TEST&#39;: {&#39;CHARSET&#39;: None,
+                      &#39;COLLATION&#39;: None,
+                      &#39;MIRROR&#39;: None,
+                      &#39;NAME&#39;: None},
+             &#39;TIME_ZONE&#39;: &#39;America/Lima&#39;,
+             &#39;USER&#39;: &#39;root&#39;}}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>VAR</td>
+          <td class="code"><pre>0</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FILE_UPLOAD_DIRECTORY_PERMISSIONS</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FILE_UPLOAD_PERMISSIONS</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>WS4REDIS_HEARTBEAT</td>
+          <td class="code"><pre>&#39;--heartbeat--&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FILE_UPLOAD_HANDLERS</td>
+          <td class="code"><pre>(&#39;django.core.files.uploadhandler.MemoryFileUploadHandler&#39;,
+ &#39;django.core.files.uploadhandler.TemporaryFileUploadHandler&#39;)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_CONTENT_TYPE</td>
+          <td class="code"><pre>&#39;text/html&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>WEBSOCKET_URL</td>
+          <td class="code"><pre>&#39;/ws/&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>APPEND_SLASH</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOCALE_PATHS</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATABASE_ROUTERS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_TABLESPACE</td>
+          <td class="code"><pre>&#39;&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>YEAR_MONTH_FORMAT</td>
+          <td class="code"><pre>&#39;F Y&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STATICFILES_STORAGE</td>
+          <td class="code"><pre>&#39;django.contrib.staticfiles.storage.StaticFilesStorage&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CACHES</td>
+          <td class="code"><pre>{&#39;default&#39;: {&#39;BACKEND&#39;: &#39;django.core.cache.backends.locmem.LocMemCache&#39;}}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SERVER_EMAIL</td>
+          <td class="code"><pre>&#39;root@localhost&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_PATH</td>
+          <td class="code"><pre>&#39;/&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SILENCED_SYSTEM_CHECKS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MIDDLEWARE_CLASSES</td>
+          <td class="code"><pre>(&#39;django.contrib.sessions.middleware.SessionMiddleware&#39;,
+ &#39;django.middleware.common.CommonMiddleware&#39;,
+ &#39;django.middleware.csrf.CsrfViewMiddleware&#39;,
+ &#39;django.contrib.auth.middleware.AuthenticationMiddleware&#39;,
+ &#39;django.contrib.auth.middleware.SessionAuthenticationMiddleware&#39;,
+ &#39;django.contrib.messages.middleware.MessageMiddleware&#39;,
+ &#39;django.middleware.clickjacking.XFrameOptionsMiddleware&#39;,
+ &#39;corsheaders.middleware.CorsMiddleware&#39;)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_I18N</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>THOUSAND_SEPARATOR</td>
+          <td class="code"><pre>&#39;,&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECRET_KEY</td>
+          <td class="code"><pre>u&#39;********************&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGE_COOKIE_NAME</td>
+          <td class="code"><pre>&#39;django_language&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_INDEX_TABLESPACE</td>
+          <td class="code"><pre>&#39;&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TRANSACTIONS_MANAGED</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOGGING_CONFIG</td>
+          <td class="code"><pre>&#39;logging.config.dictConfig&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEMPLATE_LOADERS</td>
+          <td class="code"><pre>(&#39;django.template.loaders.filesystem.Loader&#39;,
+ &#39;django.template.loaders.app_directories.Loader&#39;)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>WS4REDIS_EXPIRE</td>
+          <td class="code"><pre>3600</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FIRST_DAY_OF_WEEK</td>
+          <td class="code"><pre>0</pre></td>
+        </tr>
+      
+        <tr>
+          <td>WSGI_APPLICATION</td>
+          <td class="code"><pre>&#39;ws4redis.django_runserver.application&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEMPLATE_DEBUG</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>X_FRAME_OPTIONS</td>
+          <td class="code"><pre>&#39;SAMEORIGIN&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_NAME</td>
+          <td class="code"><pre>&#39;csrftoken&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FORCE_SCRIPT_NAME</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_X_FORWARDED_HOST</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SIGNING_BACKEND</td>
+          <td class="code"><pre>&#39;django.core.signing.TimestampSigner&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_SECURE</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_DOMAIN</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FILE_CHARSET</td>
+          <td class="code"><pre>&#39;utf-8&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEBUG</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGE_COOKIE_DOMAIN</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_FILE_STORAGE</td>
+          <td class="code"><pre>&#39;django.core.files.storage.FileSystemStorage&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>INSTALLED_APPS</td>
+          <td class="code"><pre>(&#39;django.contrib.admin&#39;,
+ &#39;django.contrib.auth&#39;,
+ &#39;django.contrib.contenttypes&#39;,
+ &#39;django.contrib.sessions&#39;,
+ &#39;django.contrib.messages&#39;,
+ &#39;django.contrib.staticfiles&#39;,
+ &#39;ticket&#39;,
+ &#39;monitoreo&#39;,
+ &#39;ws4redis&#39;,
+ &#39;corsheaders&#39;)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGES</td>
+          <td class="code"><pre>((&#39;af&#39;, &#39;Afrikaans&#39;),
+ (&#39;ar&#39;, &#39;Arabic&#39;),
+ (&#39;ast&#39;, &#39;Asturian&#39;),
+ (&#39;az&#39;, &#39;Azerbaijani&#39;),
+ (&#39;bg&#39;, &#39;Bulgarian&#39;),
+ (&#39;be&#39;, &#39;Belarusian&#39;),
+ (&#39;bn&#39;, &#39;Bengali&#39;),
+ (&#39;br&#39;, &#39;Breton&#39;),
+ (&#39;bs&#39;, &#39;Bosnian&#39;),
+ (&#39;ca&#39;, &#39;Catalan&#39;),
+ (&#39;cs&#39;, &#39;Czech&#39;),
+ (&#39;cy&#39;, &#39;Welsh&#39;),
+ (&#39;da&#39;, &#39;Danish&#39;),
+ (&#39;de&#39;, &#39;German&#39;),
+ (&#39;el&#39;, &#39;Greek&#39;),
+ (&#39;en&#39;, &#39;English&#39;),
+ (&#39;en-au&#39;, &#39;Australian English&#39;),
+ (&#39;en-gb&#39;, &#39;British English&#39;),
+ (&#39;eo&#39;, &#39;Esperanto&#39;),
+ (&#39;es&#39;, &#39;Spanish&#39;),
+ (&#39;es-ar&#39;, &#39;Argentinian Spanish&#39;),
+ (&#39;es-mx&#39;, &#39;Mexican Spanish&#39;),
+ (&#39;es-ni&#39;, &#39;Nicaraguan Spanish&#39;),
+ (&#39;es-ve&#39;, &#39;Venezuelan Spanish&#39;),
+ (&#39;et&#39;, &#39;Estonian&#39;),
+ (&#39;eu&#39;, &#39;Basque&#39;),
+ (&#39;fa&#39;, &#39;Persian&#39;),
+ (&#39;fi&#39;, &#39;Finnish&#39;),
+ (&#39;fr&#39;, &#39;French&#39;),
+ (&#39;fy&#39;, &#39;Frisian&#39;),
+ (&#39;ga&#39;, &#39;Irish&#39;),
+ (&#39;gl&#39;, &#39;Galician&#39;),
+ (&#39;he&#39;, &#39;Hebrew&#39;),
+ (&#39;hi&#39;, &#39;Hindi&#39;),
+ (&#39;hr&#39;, &#39;Croatian&#39;),
+ (&#39;hu&#39;, &#39;Hungarian&#39;),
+ (&#39;ia&#39;, &#39;Interlingua&#39;),
+ (&#39;id&#39;, &#39;Indonesian&#39;),
+ (&#39;io&#39;, &#39;Ido&#39;),
+ (&#39;is&#39;, &#39;Icelandic&#39;),
+ (&#39;it&#39;, &#39;Italian&#39;),
+ (&#39;ja&#39;, &#39;Japanese&#39;),
+ (&#39;ka&#39;, &#39;Georgian&#39;),
+ (&#39;kk&#39;, &#39;Kazakh&#39;),
+ (&#39;km&#39;, &#39;Khmer&#39;),
+ (&#39;kn&#39;, &#39;Kannada&#39;),
+ (&#39;ko&#39;, &#39;Korean&#39;),
+ (&#39;lb&#39;, &#39;Luxembourgish&#39;),
+ (&#39;lt&#39;, &#39;Lithuanian&#39;),
+ (&#39;lv&#39;, &#39;Latvian&#39;),
+ (&#39;mk&#39;, &#39;Macedonian&#39;),
+ (&#39;ml&#39;, &#39;Malayalam&#39;),
+ (&#39;mn&#39;, &#39;Mongolian&#39;),
+ (&#39;mr&#39;, &#39;Marathi&#39;),
+ (&#39;my&#39;, &#39;Burmese&#39;),
+ (&#39;nb&#39;, &#39;Norwegian Bokmal&#39;),
+ (&#39;ne&#39;, &#39;Nepali&#39;),
+ (&#39;nl&#39;, &#39;Dutch&#39;),
+ (&#39;nn&#39;, &#39;Norwegian Nynorsk&#39;),
+ (&#39;os&#39;, &#39;Ossetic&#39;),
+ (&#39;pa&#39;, &#39;Punjabi&#39;),
+ (&#39;pl&#39;, &#39;Polish&#39;),
+ (&#39;pt&#39;, &#39;Portuguese&#39;),
+ (&#39;pt-br&#39;, &#39;Brazilian Portuguese&#39;),
+ (&#39;ro&#39;, &#39;Romanian&#39;),
+ (&#39;ru&#39;, &#39;Russian&#39;),
+ (&#39;sk&#39;, &#39;Slovak&#39;),
+ (&#39;sl&#39;, &#39;Slovenian&#39;),
+ (&#39;sq&#39;, &#39;Albanian&#39;),
+ (&#39;sr&#39;, &#39;Serbian&#39;),
+ (&#39;sr-latn&#39;, &#39;Serbian Latin&#39;),
+ (&#39;sv&#39;, &#39;Swedish&#39;),
+ (&#39;sw&#39;, &#39;Swahili&#39;),
+ (&#39;ta&#39;, &#39;Tamil&#39;),
+ (&#39;te&#39;, &#39;Telugu&#39;),
+ (&#39;th&#39;, &#39;Thai&#39;),
+ (&#39;tr&#39;, &#39;Turkish&#39;),
+ (&#39;tt&#39;, &#39;Tatar&#39;),
+ (&#39;udm&#39;, &#39;Udmurt&#39;),
+ (&#39;uk&#39;, &#39;Ukrainian&#39;),
+ (&#39;ur&#39;, &#39;Urdu&#39;),
+ (&#39;vi&#39;, &#39;Vietnamese&#39;),
+ (&#39;zh-cn&#39;, &#39;Simplified Chinese&#39;),
+ (&#39;zh-hans&#39;, &#39;Simplified Chinese&#39;),
+ (&#39;zh-hant&#39;, &#39;Traditional Chinese&#39;),
+ (&#39;zh-tw&#39;, &#39;Traditional Chinese&#39;))</pre></td>
+        </tr>
+      
+        <tr>
+          <td>COMMENTS_ALLOW_PROFANITIES</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STATICFILES_DIRS</td>
+          <td class="code"><pre>(&#39;/home/proyectos/tasky/static&#39;,)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PREPEND_WWW</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_PROXY_SSL_HEADER</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGE_COOKIE_AGE</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_HTTPONLY</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEBUG_PROPAGATE_EXCEPTIONS</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>INTERNAL_IPS</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MONTH_DAY_FORMAT</td>
+          <td class="code"><pre>&#39;F j&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOGIN_URL</td>
+          <td class="code"><pre>&#39;/accounts/login/&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_EXPIRE_AT_BROWSER_CLOSE</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TIME_FORMAT</td>
+          <td class="code"><pre>&#39;P&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>AUTH_USER_MODEL</td>
+          <td class="code"><pre>&#39;auth.User&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATE_INPUT_FORMATS</td>
+          <td class="code"><pre>(&#39;%Y-%m-%d&#39;,
+ &#39;%m/%d/%Y&#39;,
+ &#39;%m/%d/%y&#39;,
+ &#39;%b %d %Y&#39;,
+ &#39;%b %d, %Y&#39;,
+ &#39;%d %b %Y&#39;,
+ &#39;%d %b, %Y&#39;,
+ &#39;%B %d %Y&#39;,
+ &#39;%B %d, %Y&#39;,
+ &#39;%d %B %Y&#39;,
+ &#39;%d %B, %Y&#39;)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>AUTHENTICATION_BACKENDS</td>
+          <td class="code"><pre>(&#39;django.contrib.auth.backends.ModelBackend&#39;,)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_HOST_PASSWORD</td>
+          <td class="code"><pre>u&#39;********************&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PASSWORD_RESET_TIMEOUT_DAYS</td>
+          <td class="code"><pre>u&#39;********************&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_FILE_PATH</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CACHE_MIDDLEWARE_ALIAS</td>
+          <td class="code"><pre>&#39;default&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_SAVE_EVERY_REQUEST</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>NUMBER_GROUPING</td>
+          <td class="code"><pre>0</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_ENGINE</td>
+          <td class="code"><pre>&#39;redis_sessions.session&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_FAILURE_VIEW</td>
+          <td class="code"><pre>&#39;django.views.csrf.csrf_failure&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_PATH</td>
+          <td class="code"><pre>&#39;/&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOGIN_REDIRECT_URL</td>
+          <td class="code"><pre>&#39;/accounts/profile/&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DECIMAL_SEPARATOR</td>
+          <td class="code"><pre>&#39;.&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IGNORABLE_404_URLS</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MIGRATION_MODULES</td>
+          <td class="code"><pre>{}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEMPLATE_STRING_IF_INVALID</td>
+          <td class="code"><pre>&#39;&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOGOUT_URL</td>
+          <td class="code"><pre>&#39;/accounts/logout/&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_USE_TLS</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FIXTURE_DIRS</td>
+          <td class="code"><pre>(&#39;/home/proyectos/tasky/mysite/../fixtures&#39;,)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_HOST</td>
+          <td class="code"><pre>&#39;evop20.areserver.net&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATE_FORMAT</td>
+          <td class="code"><pre>&#39;N j, Y&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MEDIA_ROOT</td>
+          <td class="code"><pre>&#39;/var/www/html/&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_EXCEPTION_REPORTER_FILTER</td>
+          <td class="code"><pre>&#39;django.views.debug.SafeExceptionReporterFilter&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ADMINS</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FORMAT_MODULE_PATH</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_FROM_EMAIL</td>
+          <td class="code"><pre>&#39;webmaster@localhost&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MEDIA_URL</td>
+          <td class="code"><pre>&#39;/var/www/html/&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATETIME_FORMAT</td>
+          <td class="code"><pre>&#39;N j, Y, P&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEMPLATE_DIRS</td>
+          <td class="code"><pre>(&#39;/home/proyectos/tasky/mysite/../templates&#39;,)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DISALLOWED_USER_AGENTS</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ALLOWED_INCLUDE_ROOTS</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOGGING</td>
+          <td class="code"><pre>{}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_REDIS_PREFIX</td>
+          <td class="code"><pre>&#39;session&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SHORT_DATE_FORMAT</td>
+          <td class="code"><pre>&#39;m/d/Y&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEST_RUNNER</td>
+          <td class="code"><pre>&#39;django.test.runner.DiscoverRunner&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CACHE_MIDDLEWARE_KEY_PREFIX</td>
+          <td class="code"><pre>u&#39;********************&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TIME_ZONE</td>
+          <td class="code"><pre>&#39;America/Lima&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CORS_ORIGIN_ALLOW_ALL</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FILE_UPLOAD_MAX_MEMORY_SIZE</td>
+          <td class="code"><pre>2621440</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_BACKEND</td>
+          <td class="code"><pre>&#39;django.core.mail.backends.smtp.EmailBackend&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_USE_SSL</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEMPLATE_CONTEXT_PROCESSORS</td>
+          <td class="code"><pre>(&#39;django.contrib.auth.context_processors.auth&#39;,
+ &#39;django.core.context_processors.static&#39;,
+ &#39;django.core.context_processors.request&#39;,
+ &#39;ws4redis.context_processors.default&#39;)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PROJECT_PATH</td>
+          <td class="code"><pre>&#39;/home/proyectos/tasky/mysite&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_AGE</td>
+          <td class="code"><pre>1209600</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SETTINGS_MODULE</td>
+          <td class="code"><pre>&#39;mysite.settings&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_ETAGS</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGES_BIDI</td>
+          <td class="code"><pre>(&#39;he&#39;, &#39;ar&#39;, &#39;fa&#39;, &#39;ur&#39;)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FILE_UPLOAD_TEMP_DIR</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_AGE</td>
+          <td class="code"><pre>31449600</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STATIC_URL</td>
+          <td class="code"><pre>&#39;/static/&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_PORT</td>
+          <td class="code"><pre>587</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_TZ</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SHORT_DATETIME_FORMAT</td>
+          <td class="code"><pre>&#39;m/d/Y P&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PASSWORD_HASHERS</td>
+          <td class="code"><pre>u&#39;********************&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ABSOLUTE_URL_OVERRIDES</td>
+          <td class="code"><pre>{}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGE_COOKIE_PATH</td>
+          <td class="code"><pre>&#39;/&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CACHE_MIDDLEWARE_SECONDS</td>
+          <td class="code"><pre>600</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_HTTPONLY</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATETIME_INPUT_FORMATS</td>
+          <td class="code"><pre>(&#39;%Y-%m-%d %H:%M:%S&#39;,
+ &#39;%Y-%m-%d %H:%M:%S.%f&#39;,
+ &#39;%Y-%m-%d %H:%M&#39;,
+ &#39;%Y-%m-%d&#39;,
+ &#39;%m/%d/%Y %H:%M:%S&#39;,
+ &#39;%m/%d/%Y %H:%M:%S.%f&#39;,
+ &#39;%m/%d/%Y %H:%M&#39;,
+ &#39;%m/%d/%Y&#39;,
+ &#39;%m/%d/%y %H:%M:%S&#39;,
+ &#39;%m/%d/%y %H:%M:%S.%f&#39;,
+ &#39;%m/%d/%y %H:%M&#39;,
+ &#39;%m/%d/%y&#39;)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_HOST_USER</td>
+          <td class="code"><pre>&#39;tasky@xiencias.org&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PROFANITIES_LIST</td>
+          <td class="code"><pre>u&#39;********************&#39;</pre></td>
+        </tr>
+      
+    </tbody>
+  </table>
+
+</div>
+
+  <div id="explanation">
+    <p>
+      You're seeing this error because you have <code>DEBUG = True</code> in your
+      Django settings file. Change that to <code>False</code>, and Django will
+      display a standard 500 page.
+    </p>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<script src="http://code.jquery.com/jquery-1.10.2.js" type="text/javascript" /></script>
+{% include "ticket/mheader.html" %}
+
+  {% include "user_chat.html" %}
+
+  <script type="text/javascript">
+
+ $(".container1").hide()
+  </script>
+
+<div class="container">
+
+
+<h3><i class="fa fa-cube"></i> Cerrados</h3>
+
+<!--
+<div class="pagination">
+    <span class="step-links">
+        {% if contacts.has_previous %}
+            <a href="?page={{ contacts.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Pagina {{ contacts.number }} de {{ contacts.paginator.num_pages }}.
+        </span>
+
+        {% if contacts.has_next %}
+            <a href="?page={{ contacts.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+    <a href='?page={{contacts.paginator.num_pages}}'>Ultima Pagina</a>
+</div>
+
+-->
+<table class='table'>
+
+    <tr class='active'>
+    <td>Id</td>
+    <td>Cliente</td>
+    <td>Asunto</td>
+    <td>Tiempo Empleado</td> 
+    </tr>
+
+{% for contact in ticket%}
+
+<tr class='sss'>
+
+
+    <td class='id1' >{{ contact.id}}</td>
+    <td class='id' >{{ contact.cliente__first_name }}</td>
+    <td  >{{ contact.asunto}}</td>
+    <td>{{ contact.dif_fecha}}</td>
+</tr>
+    
+{% endfor %}
+
+{% for contact in ticketc%}
+
+<tr class='sss'>
+
+
+    <td class='id1' >{{ contact.id}}</td>
+    <td class='id' >{{ contact.cliente__first_name }}</td>
+    <td  >{{ contact.asunto}}</td>
+    <td>{{ contact.dif_fecha}}</td>
+</tr>
+    
+{% endfor %}
+
+</table>
+
+</div>
+
+  
+<script type="text/javascript">
+
+    w=screen.width
+    h=screen.height
+
+    $(".container1").css( "margin-left", w*0.82 );
+ 
+
+
+    $( ".sss" ).click(function() {
+    $(this).css("background",'#428bca');
+
+    $(this).css("color",'#fff');
+    window.location.href = "/mdetalle_ticket/"+$(this).children().html()
+
+    });
+
+
+    $( ".sss" ).mouseover(function() {
+    $(this).css('background-color', '#428bca');
+    $(this).css("color",'#fff');
+    });
+
+    $( ".sss" ).mouseout(function() {
+    $(this).css('background-color', 'white');
+    $(this).css("color",'#000');
+    });
+
+
+</script>

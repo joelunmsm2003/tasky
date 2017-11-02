@@ -1,0 +1,100 @@
+
+
+
+
+
+{% include "ticket/mheader.html" %}
+
+
+
+
+
+<div class="container">
+
+
+<h3><i class="fa fa-folder-o"></i> Documentos</h3>
+
+{% if documentos %}
+
+	<table class='table'>
+
+<tr class='active'>
+	<td>Usuario</td>
+
+	<td>Ruta</td>
+
+</tr>
+	
+	{% for document in documentos %}
+		<tr >
+		<td>{{document.user}}</td>
+
+		<td><a href="http://xiencias.com/html/{{document.docfile.name}}">{{ document.docfile.name }}</a></td>
+		</tr>
+	{% endfor %}
+
+{% endif %}
+
+</table>
+
+
+{% if documentosp %}
+
+	<table class='table'>
+<h4>Documento del Ticket</h4>
+<tr class='active'>
+	<td>Usuario</td>
+	<td>Asunto</td>
+	<td>Ruta</td>
+
+</tr>
+	
+	{% for document in documentosp %}
+		<tr >
+		<td>{{document.user}}</td>
+		<td>{{document.ticket}}</td>
+		<td><a href="http://xiencias.com/html/{{document.docfile.name}}">{{ document.docfile.name }}</a></td>
+		</tr>
+	{% endfor %}
+
+{% endif %}
+
+</table>
+
+
+
+
+</table>
+</div>
+
+
+<script type="text/javascript">
+	
+
+	i=0
+
+$( ".file_upload" ).click(function() {
+
+	i=i+1
+	x=i
+	console.log(i)
+
+	$("#files").append('<input type="file" id="file" name="docfile'+i+'"><br>')
+	
+	$("input#cont").val(i)
+
+});
+
+function Eliminar(i)
+{
+    
+    x = $("#cont").text()
+    console.log(x)
+    var d=document.getElementById('#file'.i)
+    console.log(d)
+}
+
+
+
+
+</script>

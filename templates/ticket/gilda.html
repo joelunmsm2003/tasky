@@ -1,0 +1,294 @@
+<script src="http://code.jquery.com/jquery-1.10.2.js" type="text/javascript" /></script>
+
+<meta http-equiv="refresh" content="5" />
+
+{% include "ticket/mheader.html" %}
+{% include "user_chat.html" %}
+
+  
+{{msj}}
+
+{% load static %} 
+<link href="{% static 'css/flexbox.css' %}" rel="stylesheet" type='text/css'>
+
+<div class="container">
+  <br>
+
+   <center><p><a class="btn btn-lg btn-primary" href="/gilda" role="button"><i class="fa fa-refresh"></i></a>
+  </p></center>
+
+<table class ='table'>
+
+<tr clas='active'>
+<td >Cliente</td>
+<td >Asunto</td>
+<td >Soporte</td>
+<td >Tipo</td>
+<td >Tiempo de Espera</td>
+<td >Estado</td>
+</tr>
+
+{% for ticket_nuevo in ticket_nuevo %}
+
+    <tr class='aaa'>
+
+    <td class='id'>{{ticket_nuevo.id}}</td>
+    <td >{{ticket_nuevo.cliente__first_name}}</td>
+
+    <td >{{ticket_nuevo.asunto}}</td>
+    <td >{{ticket_nuevo.soporte_actual}}</td>
+    <td >{{ticket_nuevo.tipo__name}}</td>
+    <td >{{ticket_nuevo.dif_fecha}}</td>
+    <td >{{ticket_nuevo.estado}}</td>
+
+    </tr>
+
+{% endfor %}
+
+
+
+
+{% for ticket_preatendido in ticket_preatendido %}
+
+    <tr class='sss'>
+
+    <td  class='id'>{{ticket_preatendido.ticket_id}}</td>
+    <td >{{ticket_preatendido.ticket__cliente__first_name}}</td>
+    <td >{{ticket_preatendido.ticket__asunto}}</td>
+    <td >{{ticket_preatendido.soporte__first_name}}</td>
+    <td >{{ticket_preatendido.ticket__tipo__name}}</td>
+   
+    <td >{{ticket_preatendido.fecha}} / {{ticket_preatendido.dif_fecha}}</td>
+    <td >{{ticket_preatendido.ticket__estado}}</td>
+
+    </tr>
+
+{% endfor %}
+
+
+
+
+
+{% for ticket_atendido in ticket_atendido %}
+
+    <tr class='atendido'>
+
+    <td class='id'>{{ticket_atendido.ticket_id}}</td>
+    <td >{{ticket_atendido.ticket__cliente__first_name}}</td>
+    <td  >{{ticket_atendido.ticket__asunto}}</td>
+    <td >{{ticket_atendido.soporte__first_name}}</td>
+    <td >{{ticket_atendido.ticket__tipo__name}}</td>
+    <td >{{ticket_atendido.fecha}} / {{ticket_atendido.dif_fecha}}</td>
+    <td >{{ticket_atendido.ticket__estado}}</td>
+    
+
+    </tr>
+
+{% endfor %}
+
+
+
+
+{% for ticket_reasignado in ticket_reasignado %}
+
+    <tr class='reasignado'>
+
+    <td   class='id'>{{ticket_reasignado.ticket_id}}</td>
+    <td >{{ticket_reasignado.ticket__cliente__first_name}}</td>
+    <td >{{ticket_reasignado.ticket__asunto}}</td>
+    <td >{{ticket_reasignado.soporte__first_name}}</td>
+
+    <td >{{ticket_reasignado.ticket__tipo__name}}</td>
+    <td > {{ticket_reasignado.fecha}} / {{ticket_reasignado.dif_fecha}}</td>
+    <td >{{ticket_reasignado.ticket__estado}}</td>
+    
+
+    </tr>
+
+{% endfor %}
+
+
+
+{% for ticket_cerrados in ticket_cerrados %}
+
+    <tr class='porvalidars'>
+
+    <td  class='id'>{{ticket_cerrados.ticket_id}}</td>
+    <td >{{ticket_cerrados.ticket__cliente__first_name}}</td>
+    <td >{{ticket_cerrados.ticket__asunto}}</td>
+    <td >{{ticket_cerrados.soporte__first_name}}</td>
+    <td >{{ticket_cerrados.ticket__tipo__name}}</td>
+
+    <td >{{ticket_cerrados.fecha}} / {{ticket_cerrados.dif_fecha}}</td>
+    <td >{{ticket_cerrados.ticket__estado}}</td>
+    
+  
+
+    </tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+
+<script type="text/javascript">
+
+    $(".id").hide()
+    
+    $( ".sss" ).mouseover(function() {
+
+
+  console.log($(this).children().html())
+
+    $( ".sss" ).click(function() {
+    
+    window.location.href = "/reasignar_gilda/"+$(this).children().html()
+
+});
+
+});
+
+
+
+
+  $( ".aaa" ).mouseover(function() {
+
+
+  console.log($(this).children().html())
+
+    $( ".aaa" ).click(function() {
+    
+   
+    window.location.href = "/asignar_gilda/"+$(this).children().html()
+
+
+});
+
+});
+
+    $( ".atendido" ).mouseover(function() {
+
+
+  console.log($(this).children().html())
+
+    $( ".atendido" ).click(function() {
+    
+    window.location.href = "/mdetalle_ticket/"+$(this).children().html()
+
+
+});
+
+});
+
+
+    $( ".reasignado" ).mouseover(function() {
+
+
+  console.log($(this).children().html())
+
+    $( ".reasignado" ).click(function() {
+  
+    window.location.href = "/mdetalle_ticket/"+$(this).children().html()
+
+
+});
+
+});
+
+
+    $( ".porvalidars" ).mouseover(function() {
+
+
+  console.log($(this).children().html())
+
+    $( ".porvalidars" ).click(function() {
+    
+    
+    window.location.href = "/mdetalle_ticket/"+$(this).children().html()
+
+
+});
+
+});
+
+
+
+
+      
+</script>
+
+
+<style type="text/css">
+    
+
+    .aaa{
+
+  
+  background: #F56565;
+  color:white;
+  
+}
+.sss{
+
+  background: #C16AE5;
+  color:white;
+}
+.atendido{
+
+  background: #33cc33;
+  color:white;
+}
+.porvalidars{
+
+  background: #6600ff;
+  color:white;
+}
+.reasignado{
+
+  background: #428BCA;
+  color:white;
+}
+
+</style>
+
+
+<style type="text/css">
+  
+  #b{
+
+  vertical-align: middle;
+  display: inline-block;
+  width:45%;
+  text-align: center;
+  }
+  .archivo:hover{
+
+  }
+
+  .container1{
+
+
+      z-index:100;
+      position:"absolute";
+}
+
+
+
+
+</style>
+
+<script type="text/javascript">
+  
+
+    $(".id").hide()
+    //$(".container1").hide()
+           sw=screen.width
+           ancho=$(window).width()
+
+    console.log('ancho',ancho)
+    $(".container1").css( "margin-left", sw*0.82 );
+
+
+</script>

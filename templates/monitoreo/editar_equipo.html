@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)http://getbootstrap.com/examples/theme/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+
+    <title>Monitoreo</title>
+
+      <script type="text/javascript">
+
+
+
+                    var username = 'hello';
+                    var password = 'lll';
+
+                    $.ajax({
+                        url : "/posta", 
+                        type : "POST", 
+                        dataType:"json",
+                        data : {
+                            username: username,
+                            password: password,
+                            csrfmiddlewaretoken: '{{ csrf_token }}'
+
+                            },
+                            success : function(json) {
+
+                                console.log(json)
+                        
+
+                            },
+                    });
+                    return false;
+       
+</script>
+
+
+
+  </head>
+
+  <body role="document" data-feedly-mini="yes">
+
+    <div class="container theme-showcase" role="main">
+
+      {% include "monitoreo/header.html" %}
+
+      <div class="jumbotron">
+       <h1>Equipo {{ equipo.name }}</h1>
+       <h2><a href='/equipo/{{equipo.empresa_id}}'>{{ equipo.empresa }}</a></h2>
+        <h3>Editar</h2>
+
+      </div>
+
+
+
+   <table class='table'>
+
+   <tr class='active'>
+        
+    
+        <td>User</td>
+        <td>Name</td>
+        <td>Password</td>
+        <td>Descripcion</td>
+        <td>Ubicacion</td>
+
+   </tr>
+ 
+  <form method="post" action="/editar_equipo/{{equipo.id}}">
+
+   <tr>
+    {% csrf_token %}
+  
+ <td><input name="name" class="form-control" value='{{ equipo.name }}'></td>
+   <td><input name="user" class="form-control" value='{{ equipo.user }}'></td>
+   <td><input name="password" class="form-control" value='{{ equipo.password }}'></td>
+  
+   <td><input name="descripcion" class="form-control" value='{{ equipo.descripcion }}'></td>
+   <td><input name="ubicacion" class="form-control" value='{{ equipo.ubicacion }}'></td>
+  
+ 
+
+<td><input type="submit"  value="Update" class="btn btn-primary"></td>  </tr>
+ </form>
+    
+
+   </table>
+
+
+    </div> <!-- /container -->
+
+
+
+</body></html>

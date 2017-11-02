@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+         <link rel="icon" href="http://www.iconsdb.com/icons/download/dark-gray/x-mark-4-512.png" type="image/gif" sizes="16x16">
+   <script type='text/javascript' src='http://code.jquery.com/jquery-1.8.2.js'></script>
+
+    <title>Xiencias</title>
+
+
+  </head>
+
+  <body>
+
+{% include "ticket/mheader.html" %}
+
+  {% load static %} 
+
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type='text/css'>
+  
+    
+
+
+      <div class="jumbotron">
+        
+        {% if grupo == 'Clientes' %}
+        <p>
+          <a class="btn btn-lg btn-primary" href="/agregar_ticket_m" role="button">Generar Ticket &raquo;</a>
+        </p>
+          {% else %}
+
+
+        {% endif %}
+
+        <h1>{{estado_name}}</h1>
+      </div>
+
+
+<script type="text/javascript">
+
+        setInterval('moverItem()',2000);
+
+        function moverItem() {
+
+                    var username = 'hello';
+                    var password = 'lll';
+
+                    $.ajax({
+                        url : "/push1", 
+                        type : "POST", 
+                        dataType:"json",
+                        data : {
+                            username: username,
+                            password: password,
+                            csrfmiddlewaretoken: '{{ csrf_token }}'
+
+                            },
+                            success : function(json) {
+
+                                console.log(json)
+                                t_e=$.parseJSON(json)
+
+                                $("#t_t").html(t_e['t_t'])
+                                $("#t_a").html(t_e['t_a'])
+                                $("#t_r").html(t_e['t_r'])
+                                $("#t_as").html(t_e['t_as'])
+                                $("#t_c").html(t_e['t_c'])
+                                $("#t_n").html(t_e['t_n'])
+
+
+                                
+
+                            },
+                    });
+                    return false;
+        }
+        
+</script>
+
+
+
+
+{% if ticket %}
+
+<table class="table">
+
+   <tr class="active">
+    <td>Usuario</td>
+    <td>Asunto</td>
+   
+
+    <td>Descripcion</td>
+    <td>Tipo</td>
+    
+
+	{% if estado_name == 'Cerrados' %}
+		 <td>Fecha de Fin</td>
+	{% endif %}
+
+
+  </tr>
+
+
+{% for ticket in ticket%}
+	
+	
+	<tr class='sss'>
+	<td class='id'>{{ticket.id}}</td>
+	<td >{{ticket.cliente.first_name}}</td>
+	<td >{{ticket.asunto}}</td>
+	
+	<td >{{ticket.descripcion}}</td>
+	{% if estado_name == 'Cerrados' %}
+	<td >{{ticket.fecha_fin}}</td>
+	{% endif %}
+
+  <td >{{ticket.tipo}}</td>
+ 
+	</tr>
+{% endfor %}
+
+
+</table>
+
+
+
+{% else %}
+<a>No hay tickets</a>
+{% endif %}
+
+
+  </body>
+
+
+<script type="text/javascript">
+$('.id').hide()
+
+ $( ".sss" ).mouseover(function() {
+
+    $(this).css("background",'#428bca');
+    $(this).css("color",'#fff');
+	  
+    $( ".sss" ).click(function() {
+    $(this).css("background",'#428bca');
+    
+    window.location.href = "/mdetalle_ticket/"+$(this).children().html()
+
+});
+
+
+});
+
+ $( ".sss" ).mouseout(function() {
+
+  $(this).css("background",'#fff');
+  $(this).css("color",'#000');
+
+});
+
+</script>
+
+
+
+</html>

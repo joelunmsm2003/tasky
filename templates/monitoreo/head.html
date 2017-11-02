@@ -1,0 +1,167 @@
+ <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+
+  <link href='/static/css/sistema.css' rel='stylesheet' type='text/css'>
+
+ 
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal ">
+
+    <div class="modal-content">
+
+
+
+
+        <form method="post" name="example form" class="form-signin" role="form">
+
+        {% csrf_token %}
+        <center><h5 class="header form-signin-heading">Log in</h5></center>
+        <label for="inputEmail" class="sr-only">Username</label>
+        <input  name="username"  type="text" id="username" class="form-control" placeholder="Username" required="" autofocus="">
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="password" class="form-control" placeholder="Password" required="">
+
+
+    </div>
+
+
+        <div class="row center-align">
+
+          <div class="input-field col s12 m4">
+          <button class="btn btn-short" type="submit" id="button">Ingresar</button>
+          </div>
+
+     
+
+          <div class="input-field col s12 m4">
+          <button class="red btn btn-short" type="submit" id="button">Google</button>
+          </div>
+
+    
+
+          <div class="input-field col s12 m4">
+          <button class="blue btn btn-short" type="submit" id="button">Facebok</button>
+          </div>
+
+        </div>
+       
+
+      
+
+
+
+ 
+      </form>
+    <!-- Card Content -->
+   
+            
+
+
+  </div>
+  
+
+
+<div class="navbar-fixed">
+  <nav class="blue lighten-1" role="navigation">
+    <div class="nav-wrapper">
+      <a href="/sistema" class="brand-logo text_b">Xiencias</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+
+        {% if user.is_authenticated %}
+        <li><a href="/salirsistema" class='modal-trigger'><i class="material-icons">power_settings_new</i></a></li>
+        {% else %}
+        <li><a href="#modal1" class='modal-trigger'><i class="material-icons">person</i></a></li>
+
+        {% endif %}
+
+        <li><a href="sass.html">{{user.username}}</a></li>
+        <li><a href="badges.html">Components</a></li>
+        <li><a href="collapsible.html">Javascript</a></li>
+        
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        
+        {% if user.is_authenticated %}
+        <li><a href="/salirsistema" class='modal-trigger'><i class="material-icons">power_settings_new</i></a></li>
+        {% else %}
+        <li><a href="#modal1" class='modal-trigger'><i class="material-icons">person</i></a></li>
+
+        {% endif %}
+
+
+        <li><a href="badges.html">Components</a></li>
+        <li><a href="collapsible.html">Javascript</a></li>
+        <li><a href="mobile.html">Mobile</a></li>
+      </ul>
+    </div>
+  </nav>
+
+</div>
+ <script type="text/javascript">
+
+     $(".button-collapse").sideNav();
+
+
+  </script>
+
+
+
+
+
+          <script type="text/javascript">
+        $(document).ready(function() {
+            var id_ori_llamada = 'xxx';
+
+            $("#button").click(function() {
+                    var username = $("#username").val();
+                    var password = $("#password").val();
+                    $.ajax({
+                        url : "/push", 
+                        type : "POST", 
+                        dataType:"json",
+                        data : {
+                            username: username,
+                            password: password,
+                            csrfmiddlewaretoken: '{{ csrf_token }}'
+                            },
+                            success : function(json) {
+
+                                console.log(json)
+                                $('#result').append(json);
+
+                                if (json=='Admin') {
+
+                                        window.location.href = "/input"
+
+                                }
+
+                                if (json=='Soporte') {
+
+                                   
+
+                                        window.location.href = "/input"
+
+       
+                                }
+
+        
+                                if (json=='Clientes') {
+
+                                window.location.href = "/input"
+                                
+                                }
+
+
+
+                            },
+                    });
+                    return false;
+            });
+        });
+
+
+ console.log('width',$(document).width())
+</script>
+
+

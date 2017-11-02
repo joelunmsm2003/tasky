@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)http://getbootstrap.com/examples/theme/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+
+  {% load static %} 
+
+    <link href="{% static 'css/style_1.css' %}" rel="stylesheet" type='text/css'>
+    <script src="{% static 'js/angular-tablesort.js' %}"></script>
+
+
+
+    <title>Monitoreo</title>
+    <div id='e'>{{empresa.id}}</div>
+
+    <script>
+
+
+    var myApp=angular.module('myApp', ['tableSort']);
+    myApp.config(function($interpolateProvider){
+    $interpolateProvider.startSymbol('{[{').endSymbol('}]}');
+    });
+    
+    </script>
+
+
+    </head>
+
+
+
+<body ng-app="myApp" ng-controller="tableTestCtrl" ng-init="Creadores='Hola Peru'"role="document" data-feedly-mini="yes">
+
+        
+ 
+
+    <div class="container theme-showcase" role="main">
+
+      {% include "monitoreo/header.html" %}
+
+
+      <div class="jumbotron">
+      <div id='main'>
+      <article><p><input placeholder="Buscar" type="text" ng-model="test" class='form-control'></p></article>
+      <nav>{{empresa.name}}</nav>
+      <aside>Equipos</aside>
+      </div>
+
+      </div>
+
+      </div>
+
+    <table class='table' ts-wrapper>
+
+    <tr>
+    <td ts-criteria="fields.name|lowercase" > <a style=" cursor: pointer;"> Equipo <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></a></td>
+    <td ts-criteria="fields.ip|parseInt"><a style=" cursor: pointer;">IP <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></a></td>
+    <td ts-criteria="fields.user|lowercase" ><a style=" cursor: pointer;"> User <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></a></td>
+    <td ts-criteria="fields.password|lowercase"><a style=" cursor: pointer;">Pass <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></a></td>
+    <td ts-criteria="fields.descripcion|lowercase"><a style=" cursor: pointer;">Descripcion <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></a></td>
+    <td ts-criteria="fields.ubicacion|lowercase"><a style=" cursor: pointer;">Ubicacion <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></a></td>
+  
+
+        <form method="post" action="/equipo/{{empresa.id}}/equipo">
+
+        {% csrf_token %}
+
+
+        <tr>
+        <td><input name="name" class="form-control"></td>
+        <td><input name="ip" class="form-control"></td>
+        <td><input name="user" class="form-control"></td>
+        <td><input name="pass" class="form-control"></td>
+        <td><input name="descripcion" class="form-control"></td>
+        <td><input name="ubicacion" class="form-control"></td>
+        <td><input type="submit"  value="Agregar" class="btn btn-primary"></td>
+
+        
+        </tr>
+
+      </form>
+
+    </tr>
+
+    <tr ng-repeat="x in names | filter:test " class='active' ts-repeat>
+    
+   
+  
+    <td>{[{ x.fields.name }]} </td>
+    <td>{[{ x.fields.ip }]} </td>
+    <td>{[{ x.fields.user }]}</td>
+    <td>{[{ x.fields.password }]}</td>
+    <td>{[{ x.fields.descripcion }]}</td>
+    <td>{[{ x.fields.ubicacion }]}</td>
+    <td><a class="btn btn-primary" href="/editar_equipo/{[{x.pk}]}" role="button">Editar</a></td>
+    <td><a class="btn btn-success" href="/parametro/{[{x.pk}]}/{{empresa.id}}" role="button">Parametros</a></td>
+    <td><a class="btn btn-danger" href="/eliminar_equipo/{[{x.pk}]}/{{empresa.id}}" role="button">Eliminar</a></td>
+
+
+    </tr>
+
+    </table>
+
+
+
+
+   
+  
+ 
+    </div> <!-- /container -->
+
+
+
+
+
+<script>
+
+
+ 
+function tableTestCtrl($scope,$http) {
+
+    $('#e').hide()
+    $http.get("/equipote/"+($('#e').text()).toString())
+    .success(function(response) {$scope.names = response;
+      console.log($('#e').text())});
+}
+
+</script>
+
+
+
+
+</body></html>
+

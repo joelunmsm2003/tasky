@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+
+<html lang="en" ng-app="myApp" ng-controller="Todo">
+
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="http://www.diloo.com.pe/images/favicon.png">
+    <title>({[{countopen}]}) Xiencias</title>
+
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+  
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
+   
+
+    {% load static %} 
+
+    <script type="text/javascript" src="/static/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/static/js/angular-cookie.js"></script>
+    <script type="text/javascript" src="/static/js/angular-sorted.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap-file.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
+       
+
+    <script>
+
+    var myApp=angular.module('myApp', ['ngCookies']);
+    myApp.config(function($interpolateProvider){
+    $interpolateProvider.startSymbol('{[{').endSymbol('}]}');
+    });
+    
+    </script>
+  
+</head>
+
+<body>
+
+
+  <div class="row">
+    <div class="col s12">
+      <ul class="tabs">
+        <li class="tab col s3"><a href="#test1">Open ({[{countopen}]})</a></li>
+        <li class="tab col s3"><a class="active" href="#test2">Answered ({[{countanswered}]})</a></li>
+        <li class="tab col s3"><a href="#test3">Cerrados</a></li>
+        
+      </ul>
+    </div>
+    <div id="test1" class="col s12">
+            <table>
+
+            <tr>
+            <td>id</td>
+            <td>asunto</td>
+            <td>Cliente</td>
+            <td>tipo</td>
+            <td>soporte actual</td>
+            <td>descripcion</td>
+            <td>estado</td>
+            <td>cancha</td>
+
+            </tr>
+
+
+            <tr ng-repeat="x in open">
+            <td>{[{ x.id }]}</td>
+
+            <td>{[{x.asunto}]}</td>
+            <td>{[{x.cliente}]}</td>
+            <td>{[{x.tipo}]}</td>
+            <td>{[{x.soporte_actual}]}</td>
+            <td>{[{x.descripcion}]}</td>
+            <td>{[{x.estado}]}</td>
+            <td>{[{x.cancha}]}</td>
+            <td><a href='/mdetalle_ticket/{[{x.id}]}'>Detalle</a></td>
+
+            </tr>
+            </table>
+
+    </div>
+    <div id="test2" class="col s12">
+
+            <table>
+
+            <tr>
+            <td>id</td>
+            <td>asunto</td>
+            <td>Cliente</td>
+            <td>tipo</td>
+            <td>soporte actual</td>
+            <td>descripcion</td>
+            <td>estado</td>
+            <td>cancha</td>
+
+            </tr>
+
+
+            <tr ng-repeat="x in answered">
+            <td>{[{ x.id }]}</td>
+
+            <td>{[{x.asunto}]}</td>
+            <td>{[{x.cliente}]}</td>
+            <td>{[{x.tipo}]}</td>
+            <td>{[{x.soporte_actual}]}</td>
+            <td>{[{x.descripcion}]}</td>
+            <td>{[{x.estado}]}</td>
+            <td>{[{x.cancha}]}</td>
+
+            </tr>
+            </table>
+
+
+    </div>
+ 
+  </div>
+
+
+
+<div>
+
+
+
+
+
+</div>
+
+</body></html>
+
+<script type="text/javascript">
+
+function Todo($scope,$http,$cookies,$filter) {
+
+
+    $http.get("/tickets").success(function(response) {
+
+
+       $scope.open = response.open;
+       $scope.answered = response.answered;
+
+       console.log(response)
+       $scope.countopen=$scope.open.length
+       $scope.countanswered=$scope.answered.length
+    });
+
+}
+
+
+</script>
+
+

@@ -1,0 +1,74 @@
+body, .header, .center-align{
+	
+	font-family: 'Roboto', sans-serif;
+	font-stretch: condensed;
+	font-weight: 100;
+	
+
+}
+
+
+#index-banner{
+
+
+	background: url('http://www.koreaittimes.com/images/KISA%20is%20operationg%20Korea%20Internet%20Security%20Center%20247%20and%20monitoring%20abnormal%20traffic.jpg') no-repeat center center fixed;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  margin: 0.5rem 0 1rem 0;
+  background-color: #2C363D;
+  transition: box-shadow .25s;
+  border-radius: 2px;
+}
+
+.card .card-action a:hover {
+  color: #0B0B0B;
+}
+
+.card .card-action a {
+  color: #fff;
+  margin-right: 20px;
+  -webkit-transition: color .3s ease;
+  -moz-transition: color .3s ease;
+  -o-transition: color .3s ease;
+  -ms-transition: color .3s ease;
+  transition: color .3s ease;
+  text-transform: uppercase;
+}
+
+.large-Modal .modal-dialog{
+  width:400px; height: 400px;
+  position: absolute;
+  top:0; bottom: 0; left: 0; right: 0;
+  margin: auto
+}
+
+.modal {
+
+  width: 35%;
+
+ 
+}
+
+.modal .modal-footer {
+  border-radius: 0 0 2px 2px;
+  background-color: #fafafa;
+  padding: 4px 6px;
+  height: 87px;
+  width: 100%;
+}
+
+
+
+@media (max-width: 1000px) {
+
+.modal {
+
+  width: 70%;
+ 
+}
+
+
+}

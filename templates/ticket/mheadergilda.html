@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+ 
+
+  {% load static %} 
+
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type='text/css'>
+
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <!-- Static navbar -->
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+
+<a class ="navbar-brand" href='/ticketopen'><center><IMG SRC="/static/img/BOLA8.png" width='20px'></center></a>  
+<a class ="navbar-brand" href='/ticketopen'><center><IMG SRC="/static/img/LETRASXIENCIAS1.png" width='140px'></center></a>
+      
+         
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+
+      
+               
+          
+
+                {% if grupo == 'Soporte' %}
+
+          
+        
+
+                <!--<li><a href="/tickets_asignados"><span id='menu'>Tickets  </span> <span id='t_t'>0</span></a></li>-->
+        
+                <li><a href="/ticketopen/"><span id='menu'><i class="fa fa-share"></i> Open</span>  <span id='t_t'>{{oc}}|{{t}}</span></a></li>
+          
+        
+                
+                {% endif %}
+
+                {% if grupo == 'Clientes' %}
+
+
+                <li><a href="/ticketopen/"><span id='menu'><i class="fa fa-share"></i> Open</span>  <span id='t_t'>{{oc}}|{{t}}</span></a></li>
+           
+              
+                {% endif %}                 
+
+ 
+                <li><a href="/ticketscerrados"><span id='menu'><i class="fa fa-recycle"></i> Cerrados </span></a>
+
+         
+
+
+                </li>
+                <li><a href="/agregar_ticket_m"><span id='menu'><i class="fa fa-plus"></i> Agregar Ticket </span> </span></a></li>
+              
+            </ul>
+            
+            <ul class="nav navbar-nav navbar-right">
+
+
+              <li><a><span id='menu'><i class="fa fa-cube"></i> {{grupo}}</span>  </a></li>
+              <li class="active"><a href="/ver_usuario/{{user.id}}"><i class="fa fa-user"></i>  {{user.first_name}}<span class="sr-only"></span></a></li>
+              <li><a href="/salir"><span id='menu'><i class="fa fa-power-off"></i> Salir</span></a></li>
+            
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+
+      <div id='sound'></div>
+
+    
+      <script type="text/javascript">
+
+        setInterval('moverItem()',5000);
+
+        function moverItem() {
+
+                    var username = 'hello';
+                    var password = 'lll';
+
+                    $.ajax({
+                        url : "/push1", 
+                        type : "POST", 
+                        dataType:"json",
+                        data : {
+                            username: username,
+                            password: password,
+                            csrfmiddlewaretoken: '{{ csrf_token }}'
+
+                            },
+                            success : function(json) {
+
+                                console.log(json)
+                                t_e=$.parseJSON(json)
+                          
+
+                                $("#t_t").html(t_e['t_t']+"|"+t_e['t'])
+                                $("#t_a").html(t_e['t_a']/"8")
+                             
+                                
+
+                               
+
+                                
+
+                            },
+                    });
+                    return false;
+        }
+        
+</script>
+
+<style type="text/css">
+  
+  #t_t,#t_a,#t_c,#t_as,#t_r,#t_p,#t_n{
+
+    background: white;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 11px;
+    padding-right: 11px;
+    border-radius: 1em;
+    color: #2e6da4;
+
+  }
+  #menu{
+    font-size: 14px;
+    color: white;
+    width: 12px;
+    margin:5px;
+  }
+  .nav :hover{
+
+    background: #123;
+    color:#777;
+    transition: all 0.5s ease-in;
+
+  }
+
+
+
+
+</style>
+
+
+
+
+
+
+     <script type="text/javascript">
+
+    $(".nav a").on("click", function(){
+    $(".nav").find(".active").removeClass("active");
+    $(this).parent().addClass("active");
+    });
+
+     </script>
+
+
+     </body>
+
+     </html>

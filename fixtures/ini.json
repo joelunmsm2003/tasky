@@ -1,0 +1,84 @@
+[
+  {
+    "model": "ticket.tipo",
+    "pk": 1,
+    "fields": {
+      "name": "Incidencia"
+    
+    }
+  },
+  {
+    "model": "ticket.tipo",
+    "pk": 2,
+    "fields": {
+      "name": "Requerimientos"
+      
+    }
+  },
+  {
+    "model": "ticket.tipo",
+    "pk": 3,
+    "fields": {
+      "name": "Implementacion"
+      
+    }
+  },
+
+  {
+    "model": "ticket.estado",
+    "pk": 1,
+    "fields": {
+      "name": "Nuevo"
+      
+    }
+  },
+
+  {
+    "model": "ticket.estado",
+    "pk":2,
+    "fields": {
+      "name": "Atendido"
+      
+    }
+  },
+
+    {
+    "model": "ticket.estado",
+    "pk": 3,
+    "fields": {
+      "name": "Prueba"
+      
+    }
+  },
+
+    {
+    "model": "ticket.estado",
+    "pk": 4,
+    "fields": {
+      "name": "Cerrado"
+      
+    }
+  },
+
+    {
+    "model": "ticket.estado",
+    "pk": 5,
+    "fields": {
+      "name": "Asignado"
+      
+    }
+  },
+
+    {
+    "model": "ticket.estado",
+    "pk": 6,
+    "fields": {
+      "name": "Reasignado"
+      
+    }
+  }
+
+]
+
+
+

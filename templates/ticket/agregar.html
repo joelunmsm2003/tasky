@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+
+    <script>
+
+
+    var myApp=angular.module('myApp', []);
+    myApp.config(function($interpolateProvider){
+    $interpolateProvider.startSymbol('{[{').endSymbol('}]}');
+    });
+
+    </script>
+
+
+</head>
+
+<body>
+
+<p>Try to change the names.</p>
+
+<div ng-app="myApp" ng-controller="TodoCtrl">
+
+<form ng-submit="addNew()">
+	<legend>Form title</legend>
+
+	<div class="form-group">
+		<label for="">label</label>
+		<input type="text" ng-model="todotext" class="form-control" id="" placeholder="Input field">
+	</div>
+
+	
+
+	<button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+<table>
+	
+
+<tr ng-repeat="x in todo " class='active' ts-repeat>
+
+{[{x}]}
+
+</tr>
+
+</table>
+
+
+
+</div>
+
+
+
+<script>
+
+function TodoCtrl($scope,$http){
+
+
+    $http.get("/ver_ticket/").success(function(response){
+
+      $scope.todo = response;
+      
+	});
+
+	$scope.addNew = function(){
+
+		console.log($scope.todo);
+
+		var todo = {
+			text: $scope.todotxt,
+			done: false
+		}
+	}
+}
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,195 @@
+<div class="container">
+
+  <!-- Trigger the modal with a button -->
+  
+  <!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content" style="width: 41em;">
+        <div class="modal-header">
+         <h4>Tarea {{ticket.asunto}}</h4>
+        </div>
+        <div class="modal-body">
+          <h3>Desea cerrar esta tarea</h3>
+        </div>
+              <div class="modal-footer">
+             
+
+              <input class="btn" type="button" value="Aceptar" onClick="window.location.href='/validar/{{ticket.id}}'">
+               <button class="btn btn-default" data-dismiss="modal">Cancelar</button>
+              </form>
+       
+          
+              </div>
+        </div>
+      
+      </div>
+    </div>
+  
+</div>
+
+<div class="modal fade" id="atender" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content" style="width: 41em;">
+        <div class="modal-header">
+         <h4>Tarea {{ticket.asunto}}</h4>
+        </div>
+        <div class="modal-body">
+          <h3>Desea atender esta tarea</h3>
+        </div>
+              <div class="modal-footer">
+             
+
+              <input class="btn" type="button" value="Aceptar" onClick="window.location.href='/atender/{{ticket.id}}'">
+               <button class="btn btn-default" data-dismiss="modal">Cancelar</button>
+              </form>
+       
+          
+              </div>
+        </div>
+      
+      </div>
+    </div>
+  
+
+
+
+      {% if grupo == 'Soporte' %}
+
+        {% if estado == 'Nuevo' %}
+        <div id='b'>
+
+      
+
+        <p>
+        <button type="button" class="btn btn-lg btn-default" data-toggle="modal" data-target="#atender" role="button">Atender &raquo;</button>
+        </p>
+
+        </div>
+
+
+        {% endif %}
+
+          {% if estado == 'Asignado' %}
+          <div id='b'>
+
+          <p>
+        <button type="button" class="btn btn-lg btn-default" data-toggle="modal" data-target="#atender" role="button">Atender &raquo;</button>
+        </p>
+
+        
+          </div>
+
+          <div id ='b'>
+          <p>
+          
+          <button type="button" class="btn btn-lg btn-default" data-toggle="modal" data-target="#myModal" role="button">Cerrar &raquo;</button>
+
+          
+          </p>
+
+          </div>
+
+
+
+          {% endif %}
+
+
+
+        {% if estado == 'Atendido' %}
+
+         <!-- <div id='b'>
+
+          <p>
+          <a class="btn btn-lg btn-default" href="/cerrar/{{ticket.id}}" role="button">Validar &raquo;</a>
+          </p>
+
+          </div>-->
+
+          <div id='b'>
+
+          <p>
+          <a class="btn btn-lg btn-default" href="/reasignar/{{soportes.id}}/{{ticket.id}}" role="button">Reasignar &raquo;</a>
+          </p>
+
+          </div>
+
+          <div id='b'>
+
+          <p>
+         <button type="button" class="btn btn-lg btn-default" data-toggle="modal" data-target="#myModal" role="button">Cerrar &raquo;</button>
+
+          </p>
+
+          </div>
+
+  
+          {% endif %}
+
+
+          {% if estado == 'Prueba' %}
+
+         <div id='b'>
+
+          <p>
+          <a class="btn btn-lg btn-default" href="/validar/{{ticket.id}}" role="button">Cerrar &raquo;</a>
+          </p>
+
+          </div>
+
+  
+          {% endif %}
+
+          {% if estado == 'Reasignado' %}
+
+          <div id='b'>
+
+          <p>
+        <button type="button" class="btn btn-lg btn-default" data-toggle="modal" data-target="#atender" role="button">Atender &raquo;</button>
+        </p>
+          </div>
+
+
+          <div id='b'>
+
+          <p>
+          <button type="button" class="btn btn-lg btn-default" data-toggle="modal" data-target="#myModal" role="button">Cerrar &raquo;</button>
+
+          </p>
+
+          </div>
+
+  
+          {% endif %}
+
+
+
+
+
+      {% else %}
+
+          {% if estado == 'Cerrado' %}
+
+
+          {% else %}
+
+
+          <div id='b'>
+
+          <p>
+          <button type="button" class="btn btn-lg btn-default" data-toggle="modal" data-target="#myModal" role="button">Cerrar &raquo;</button>
+
+          </p>
+
+          </div>
+
+          {% endif %}
+
+      {% endif %} 
+
+
+

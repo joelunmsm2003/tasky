@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<!-- saved from url=(0040)http://getbootstrap.com/examples/signin/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+     <link rel="icon" href="http://www.iconsdb.com/icons/download/dark-gray/x-mark-4-512.png" type="image/gif" sizes="16x16">
+    <script type='text/javascript' src='http://code.jquery.com/jquery-1.8.2.js'></script>
+  <title>({{oc}}) Xiencias</title>
+
+
+
+  {% load static %} 
+
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type='text/css'>
+  
+
+
+  </head>
+
+
+  <body data-feedly-mini="yes">
+
+
+ 
+
+
+      
+
+
+
+{% include "ticket/mheader.html" %}
+
+    
+        
+     
+
+   
+
+          <div class="jumbotron">
+ 
+         <h1>Answered<h1>
+
+      </div>
+
+       
+
+{{msj}}
+
+
+
+
+
+{% if open %}
+
+<table class='table'>
+
+<tr class='active'>
+  
+    <td>Id</td>
+    <td>Cliente</td>
+    <td>Asunto</td>
+    <td>Fecha de Inicio</td>
+    <td>Estado</td>
+
+
+</tr>
+
+{% for ticket in open %}
+
+    <tr class='asignado'>
+
+
+    <td class='id'>{{ticket.id}}</td>
+    <td class='cli'>{{ticket.cliente.first_name}}</td>
+    <td >{{ticket.asunto}}</td>
+    <td >{{ticket.fecha_inicio}}</td>
+    <td >{{ticket.estado}}</td>
+
+
+
+
+
+    </tr>
+
+{% endfor %}
+
+
+
+{% else%}
+
+<h4>No hay tickets</h4>
+
+{% endif %}
+
+
+
+
+
+
+</table>
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+   
+
+
+
+$( ".asignado" ).mouseover(function() {
+
+    $(this).css("background",'#428bca');
+    $(this).css("color",'#fff');
+
+
+});
+
+ $( ".asignado" ).mouseout(function() {
+
+  $(this).css("background",'#fff');
+  $(this).css("color",'#000');
+
+});
+      
+    $( ".asignado" ).click(function() {
+    $(this).css("background",'#428bca');
+    
+    window.location.href = "/mdetalle_ticket/"+$(this).children().html()
+
+});
+
+    
+
+
+
+
+
+</script>
+
+</body>
+
+</html>

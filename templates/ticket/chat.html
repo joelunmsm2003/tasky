@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <script type='text/javascript' src='http://code.jquery.com/jquery-1.8.2.js'></script>
+
+    {% if oc %}
+    <title>({{oc}}) Xiencias</title>
+    {% else %}
+    <title>Xiencias</title>
+    {% endif %}
+
+
+    {% load static %} 
+    <link rel=stylesheet href="/static/css/animate.css">
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type='text/css'>
+
+    </head>
+
+    <body>
+
+{% include "ticket/mheader.html" %}
+		<div class="container">
+	<br>
+<center>Conversacion <i class="fa fa-comment-o"></i>  </center>
+		<div class="row1">
+			<div>
+				
+				<!--<pre id="billboard" style="overflow-y: auto; height: 24em; margin-top: 1em;">{% for chat in chat %}{{chat.name}}-{{chat.chat}}<br>{% endfor %}</pre>-->
+				<pre id="billboard" style="overflow-y: auto; height: 24em; margin-top: 1em;"></pre>
+			</div>
+		</div>
+
+		<center><div class="row1">
+			<div "form-inline">
+				<div>
+					<input class="form-control" type="text" id="text_message" />
+				</div>
+			<button class="btn btn-primary" id="send_message"><i class="fa fa-paper-plane"></i></button>
+			<!--<button class="btn btn-primary" id="send_hearth"><i class="fa fa-heart"></i></button>-->
+	to
+	<select class="form-control" id="user" style="display: inline-block; width: auto;">
+	{% for user in users %}
+	<option value="{{ user.username }}">{% firstof user.get_full_name user.username %}</option>
+	{% endfor %}
+	</select>
+
+
+			</div>
+		</div><center>
+
+
+
+	</div>
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+
+	<script src="/static/js/chat.js" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+
+	var billboard = $('#billboard');
+	billboard.scrollTop(25000);
+	billboard.append('');
+
+	$( ".fa-minus-square" ).click(function() {
+   
+    $(".container1").hide()
+
+	});
+
+	jQuery(document).ready(function($) {
+
+		
+
+
+    // attach this function to an event handler on your site
+  		 
+  		var ws4redis1 = WS4Redis({
+			uri: '{{ WEBSOCKET_URI }}foobar?subscribe-broadcast&publish-broadcast&echo',
+			receive_message: receiveMessage1,
+			heartbeat_msg: {{ WS4REDIS_HEARTBEAT }}
+		});
+
+  		function receiveMessage1(msg) {
+  		console.log(msg)
+  		if ('Soporte'=='{{grupo}}'){
+
+
+		billboard.append('<br/>'+'<span style="color:#BAFFD8;"><i class="fa fa-cube"></i> '+msg+'</span>');
+		billboard.scrollTop(billboard.scrollTop() + 30);
+		$('#audio').html('<audio autoplay="true" controls><source src="/static/img/audio.mp3" type="audio/mpeg"></audio>')
+
+
+		}
+
+		}
+
+		var ws4redis = WS4Redis({
+			uri: '{{ WEBSOCKET_URI }}foobar?subscribe-user',
+			receive_message: receiveMessage,
+			heartbeat_msg: {{ WS4REDIS_HEARTBEAT }}
+		});
+		var billboard = $('#billboard');
+
+
+
+	
+
+		
+
+		$("#text_message").keydown(function(event) {
+			if (event.keyCode === 13) {
+				event.preventDefault();
+				sendMessage();
+			}
+
+
+		});
+
+		$('#send_message').click(sendMessage);
+	
+
+		// send message to the server using Ajax
+		
+		j=0
+		function sendMessage() {
+
+
+			console.log('j',j)
+			j=j+1
+			$.post('{% url "chat1" %}', {
+
+				emisor: '{{user.first_name}}',
+				user: $('#user').val(),
+				message: $('#text_message').val(),
+				csrfmiddlewaretoken: '{{ csrf_token }}'
+			});
+
+			billboard.append('<br/><span style="color:#F7CBFC;"><i class="fa fa-chevron-circle-left"></i> ' + 'Tu' + '-'+ $('#text_message').val()+'</span>');
+			billboard.scrollTop(billboard.scrollTop() + 30);
+			$('#text_message').val('')
+
+		
+		}
+
+
+
+		// receive a message though the Websocket from the server
+		i=0
+		function receiveMessage(msg) {
+			
+
+		
+			console.log('msg',msg)
+			
+			
+			x=msg.split("-");
+
+			if (i>0){
+
+			$(".container1").show()
+
+			$.post('{% url "chat2" %}', {
+
+				emisor: x[0],
+				message: x[1],
+				csrfmiddlewaretoken: '{{ csrf_token }}'
+			});
+
+			billboard.append('<br/>'+'<span style="color:#fff;"><i class="fa fa-chevron-circle-right"></i> '+msg+'</span>');
+			billboard.scrollTop(billboard.scrollTop() + 30);
+
+			$('#audio').html('<audio autoplay="true" controls><source src="/static/img/audio.mp3" type="audio/mpeg"></audio>')
+
+
+			}
+
+			
+
+
+	
+			i=i+1
+
+			
+		}
+	});
+</script>
+
+</body>
+
+</html>
+
+

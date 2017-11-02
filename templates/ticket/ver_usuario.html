@@ -1,0 +1,65 @@
+
+
+{% include "ticket/mheader.html" %}
+
+
+ 
+ <div class="container">  
+     
+
+        <h3>{{usuario.username}}</h3>
+     
+ 
+
+  <table class='table'>
+
+	<tr>
+	<td>Id</td> 
+	<td >{{usuario.id}}</td>
+	</tr>
+	<tr>
+	<td>Nombre</td>
+	<td >{{usuario.username}}</td>
+	</tr>
+
+	<tr>
+	<td>Grupo</td>
+	<td >{{grupo}}</td>
+	</tr>
+	
+	<tr>
+	<td>Correo</td>
+	<td >{{usuario.email}}</td>
+	</tr>
+
+  <tr>
+  <td>Empresa</td>
+  <td >{{usuarios.empresa}}</td>
+  </tr>
+	
+
+
+  <tr>
+  <td>Direccion</td>
+  <td >{{usuarios.direccion}}</td>
+  </tr>
+
+  <tr>
+  <td>Ciudad</td>
+  <td >{{usuarios.ciudad}}</td>
+  </tr>
+
+
+
+
+
+
+</table>
+
+ <a class="btn btn-lg btn-primary" href="/telefono/{{usuario.id}}" role="button">Telefonos &raquo;</a>
+
+
+
+
+     
+</div>

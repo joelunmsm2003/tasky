@@ -1,0 +1,328 @@
+<script src="/static/js/sweetalert.min.js"></script> 
+ <link rel=stylesheet href="/static/css/animate.css">
+<link rel="stylesheet" type="text/css" href="/static/css/sweetalert.css">
+
+
+
+	
+
+		
+
+	<script src="/static/js/chat.js" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+
+	var billboard = $('#billboard');
+	billboard.scrollTop(25000);
+	billboard.append('');
+
+	$( ".fa-minus-square" ).click(function() {
+   /*
+   	$( ".container1" ).removeClass( "animated zoomIn" );
+   	$( ".container1" ).addClass( "animated zoomOut" );
+   
+*/
+	});
+
+	jQuery(document).ready(function($) {
+
+		
+
+
+    // attach this function to an event handler on your site
+  		//$(".container1").hide()
+  		var ws4redis1 = WS4Redis({
+			uri: '{{ WEBSOCKET_URI }}foobar?subscribe-broadcast&publish-broadcast&echo',
+			receive_message: receiveMessage1,
+			heartbeat_msg: {{ WS4REDIS_HEARTBEAT }}
+		});
+
+		
+
+  	function receiveMessage1(msg) {
+  
+  		if ('Soporte'=='{{grupo}}'){
+
+  	    
+  		//console.log('receivemessage1')
+  		//billboard.append('<br/>'+'<span style="color:#BAFFD8;"><i class="fa fa-cube"></i> '+msg+'</span>');
+		//billboard.scrollTop(billboard.scrollTop() + 30);
+
+
+
+		//$('#audio').html('<audio autoplay="true" controls><source src="/static/img/audio.mp3" type="audio/mpeg"></audio>')
+
+	
+
+		}
+
+		
+		}
+
+		var ws4redis = WS4Redis({
+			uri: '{{ WEBSOCKET_URI }}foobar?subscribe-user',
+			receive_message: receiveMessage,
+			heartbeat_msg: {{ WS4REDIS_HEARTBEAT }}
+		});
+		var billboard = $('#billboard');
+
+
+
+		$("#text_message").keydown(function(event) {
+
+			if (event.keyCode === 13) {
+				event.preventDefault();
+				sendMessage();
+			}
+
+
+		});
+
+		$('#send_message').click(sendMessage);
+		
+
+		// send message to the server using Ajax
+		
+		j=0
+		function sendMessage() {
+
+
+			console.log('j',j)
+			j=j+1
+			$.post('{% url "chat1" %}', {
+
+				emisor: '{{user.first_name}}',
+				user: $('#user').val(),
+				message: $('#text_message').val(),
+				csrfmiddlewaretoken: '{{ csrf_token }}'
+			});
+
+			billboard.append('<br/><span style="color:#F0E0BD;"><i class="fa fa-chevron-circle-left"></i> ' + 'Tu' + '-'+ $('#text_message').val()+'</span>');
+			billboard.scrollTop(billboard.scrollTop() + 30);
+			$('#text_message').val('')
+
+		
+		}
+
+
+
+		// receive a message though the Websocket from the server
+		
+		i=0
+
+		function receiveMessage(msg) {
+			
+			console.log('mensajesss',msg)
+
+			
+			
+			x=msg.split("-");
+
+			console.log(x[1],x[2])
+
+			if(i>0){
+
+
+			if(x[1]=='atg'){
+
+		
+				swal({   
+					title: "Tarea Nueva",   
+					text: x[0],   
+					type: "success",   
+					confirmButtonColor: "#428bca",
+					showCancelButton: true,   
+					confirmButtonText: "Ver Tarea",   
+					closeOnConfirm: true}, 
+					function(){   
+						window.location.href = "/mdetalle_ticket/"+x[3]
+					});
+
+		
+
+			}
+
+			if(x[1]=='at'){
+
+					if ('{{grupo}}'=='Soporte'){
+
+					swal({   
+					title: "Tarea Nueva",   
+					text: x[0],   
+					type: "success",   
+					confirmButtonColor: "#428bca",
+					showCancelButton: true,   
+					confirmButtonText: "Asignar",   
+					closeOnConfirm: true}, 
+					function(){   
+						window.location.href = "/asignar_gilda/"+x[3]
+	
+					});
+
+					}
+
+					if('Clientes'=='{{grupo}}'){
+
+					swal({   
+					title: "Tarea Nueva",   
+					text: "Se envio la tarea, en un momento lo atenderemos",   
+					type: "success",   
+					confirmButtonColor: "#428bca",
+					showCancelButton: true,   
+					confirmButtonText: "Ver Tarea",   
+					closeOnConfirm: true}, 
+					function(){   
+						window.location.href = "/mdetalle_ticket/"+x[3]
+	
+					});
+
+							
+					}
+
+
+
+			
+
+				
+
+				
+
+			}
+
+			if(x[1]=='att'){
+
+
+				swal({   
+					title: "Tarea Atendida",   
+					text: x[0],   
+					type: "success",   
+					confirmButtonColor: "#428bca",
+					showCancelButton: true,   
+					confirmButtonText: "Ver tarea",   
+					closeOnConfirm: true}, 
+					function(){   
+						window.location.href = "/mdetalle_ticket/"+x[2]
+					});
+
+			}
+
+			if(x[1]=='ct'){
+
+
+				swal({   
+					title: "Cerrar Tarea",   
+					text: x[0],   
+					type: "success",   
+					confirmButtonColor: "#428bca",
+					showCancelButton: true,   
+					confirmButtonText: "Ver tarea cerrada",   
+					closeOnConfirm: true}, 
+					function(){  
+
+
+						window.location.href = "/mdetalle_ticket/"+x[2]
+					});
+
+			}
+
+
+
+			if(x[1]=='ast'){
+
+				
+
+				swal({   
+					title: "Tarea Asignada",   
+					text: "Se te asigno una tarea "+x[3], 
+					type: "success",   
+					confirmButtonColor: "#428bca",
+					showCancelButton: true,   
+					confirmButtonText: "Ver tarea",   
+					closeOnConfirm: true}, 
+					function(){   
+						window.location.href = "/mdetalle_ticket/"+x[2]
+					});
+
+
+				
+
+				
+
+			}
+
+			if(x[1]=='ar'){
+
+				
+		
+
+
+				swal({   
+					title: "Respuesta agregada",   
+					text: x[0], 
+					type: "success",   
+					confirmButtonColor: "#428bca",
+					showCancelButton: true,   
+					confirmButtonText: "Ver respuesta",   
+					closeOnConfirm: true}, 
+					function(){   
+						window.location.href = "/mdetalle_ticket/"+x[2]
+					});
+
+				
+			
+
+			}
+
+			
+			
+
+			$.post('{% url "chat2" %}', {
+
+				emisor: x[0],
+				message: x[1],
+				csrfmiddlewaretoken: '{{ csrf_token }}'
+				
+			});
+
+			if (x[2]){
+
+			
+			console.log('evento =)')
+
+			}
+			else{
+
+				if(x[1]!='att'){
+
+				console.log('msg',msg)
+
+				billboard.append('<br/>'+'<span style="color:#EDCADA;"><i class="fa fa-chevron-circle-right"></i> '+msg+'</span>');
+				billboard.scrollTop(billboard.scrollTop() + 30);
+
+				/*
+				$( ".container1" ).removeClass("animated zoomOut");
+   				$( ".container1" ).addClass( "animated zoomIn");
+
+   				*/
+	
+				}
+
+
+
+			}
+
+			$('#audio').html('<audio autoplay="true" controls><source src="/static/img/audio.mp3" type="audio/mpeg"></audio>')
+			
+
+
+		
+			}
+
+			
+			i=i+1
+		}
+	});
+</script>
+
+

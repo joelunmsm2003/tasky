@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)http://getbootstrap.com/examples/theme/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+
+    <title>Rango</title>
+
+  
+
+
+
+  </head>
+
+  <body role="document" data-feedly-mini="yes">
+
+    <div class="container theme-showcase" role="main">
+
+      {% include "monitoreo/header.html" %}
+
+      <div class="jumbotron">
+      <td><a class="btn btn-lg btn-success" href="/monitoreo" role="button">Monitoreo </a>
+        <h1>Rango</h1>
+         <h2>{{ empresa.name }}</h2>
+      </div>
+
+
+
+   <table class='table'>
+
+   <tr class='active'>
+
+   <td>IP</td>
+   <td>Red</td>
+
+   <td>Tipo</td>
+   <td>Caracteristica</td>
+   <td>Accion</td>
+
+   </tr>
+
+
+
+
+
+  <form method="post" action="/rango/{{empresa.id}}">
+
+   <tr>
+    {% csrf_token %}
+  
+   <td><input name="ip" class="form-control" value='{{ rango.ip }}'></td>
+   
+   <td>
+    <select class="form-control" name="red">
+    {% for red in red%}
+
+    
+
+      <option value="{{red.id}}">{{red.name}}</option>     
+
+
+    {% endfor %}
+    </select> </td>
+
+      <td>
+    <select class="form-control" name="tipo" >
+    {% for tipo in tipo%}
+
+
+     <option value="{{tipo.id}}" >{{tipo.name}}</option>   
+
+   
+
+     
+    {% endfor %}
+    </select> </td>
+
+      <td>
+    <select class="form-control" name="caracteristica">
+    {% for caracteristica in caracteristica%}
+
+
+
+    <option value="{{caracteristica.id}}">{{caracteristica.name}}</option>
+   
+
+
+    
+    {% endfor %}
+    </select> </td>
+
+
+  
+  
+   
+<td><input type="submit"  value="Add" class="btn btn-primary"></td></tr>
+
+ </form>
+    </tr>
+
+
+
+
+
+
+
+   {% for rango in rango %}
+   <tr>
+
+   <td>{{ rango.ip }}</td>
+   <td>{{ rango.red }}</td>
+
+   <td>{{ rango.tipo }}</td>
+   <td>{{ rango.caracteristica }}</td>
+
+  <td><a class="btn btn-primary" href="/editar_rango/{{rango.id}}" role="button">Editar</a>
+  <a class="btn btn-danger" href="/eliminar_rango/{{rango.id}}" role="button">Eliminar</a></td>
+
+
+   </tr>
+   {% endfor %}
+
+    
+
+   </table>
+
+
+    </div> <!-- /container -->
+
+
+
+</body></html>

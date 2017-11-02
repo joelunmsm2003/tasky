@@ -1,0 +1,4 @@
+{% for other_object in object.some_m2m_field.all %}
+    <a href="www.example.com">{{ other_object.id }}</a>
+    &nbsp;
+{% endfor %}

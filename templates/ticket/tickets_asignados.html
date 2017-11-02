@@ -1,0 +1,248 @@
+
+<!DOCTYPE html>
+<!-- saved from url=(0040)http://getbootstrap.com/examples/signin/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+     <link rel="icon" href="http://www.iconsdb.com/icons/download/dark-gray/x-mark-4-512.png" type="image/gif" sizes="16x16">
+    <script type='text/javascript' src='http://code.jquery.com/jquery-1.8.2.js'></script>
+    <title>Xiencias Ticket</title>
+
+
+  {% load static %} 
+
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type='text/css'>
+  
+
+
+  </head>
+
+
+  <body data-feedly-mini="yes">
+
+
+ 
+
+
+      
+
+{% if grupo == 'Soporte' %}
+
+{% include "ticket/mheader.html" %}
+
+    
+        
+         {% if grupo == 'Clientes' %}
+         <div class="jumbotron">
+        <p>
+          <a class="btn btn-lg btn-primary" href="/agregar_ticket_m" role="button">Generar Ticket &raquo;</a>
+        </p>
+         <h1>Tickets<h1>
+
+      </div>
+        {% endif %}
+       
+
+{{msj}}
+
+ <h4>Tus tickets</h4>
+
+<table class='table'>
+
+<tr>
+  
+    <td>Cliente</td>
+    <td>Asunto</td>
+    <td>Tiempo de Espera</td>
+    <td>Estado</td>
+
+
+</tr>
+
+{% if ticket_preatendido %}
+
+
+
+{% for ticket_preatendido in open %}
+
+    <tr class='asignado'>
+
+
+    <td class='id'>{{ticket_preatendido.ticket__id}}</td>
+    <td class='cli'>{{ticket_preatendido.ticket__cliente__first_name}}</td>
+    <td >{{ticket_preatendido.ticket__asunto}}</td>
+
+    <td >{{ticket_preatendido.dif_fecha}}</td>
+    <td >Asignado</td>
+
+
+    </tr>
+
+{% endfor %}
+
+
+{% endif %}
+
+{% if ticket_reasignado %}
+
+
+
+
+
+{% for ticket_reasignado in ticket_reasignado %}
+
+   <tr class='reasignado'>
+
+    <td class='id'>{{ticket_reasignado.ticket__id}}</td>
+     <td >{{ticket_reasignado.ticket__cliente__first_name}}</td>
+    <td >{{ticket_reasignado.ticket__asunto}}</td>
+   
+  
+    <td >{{ticket_reasignado.dif_fecha}}</td>
+    <td >Reasignado</td>
+    </tr>
+
+{% endfor %}
+
+
+
+
+{% endif %}
+<!--
+<a>Tickets Nuevos <a>
+<table>
+
+<tr>
+    <td>Asunto</td>
+    <td>Fecha Inicio</td>
+    <td>Accion</td>
+</tr>
+
+{% for ticket_nuevo in ticket_nuevo %}
+
+    <tr>
+
+
+    <td width='6%'>{{ticket_nuevo.asunto}}</td>
+    <td >{{ticket_nuevo.fecha_inicio}}</td>
+    <td ><a href="/atender/{{ticket_nuevo.id}}" >Atender</a></td>
+
+    </tr>
+
+{% endfor %}
+
+</table>-->
+
+{% if ticket_atendido %}
+
+
+
+{% for ticket_atendido in ticket_atendido %}
+
+
+
+    <tr class='atendido'>
+
+
+    <td class='id'>{{ticket_atendido.ticket__id}}</td>
+    <td >{{ticket_atendido.ticket__cliente__first_name}}</td>
+    <td>{{ticket_atendido.ticket__asunto}}</td>
+
+
+    
+    <td>{{ticket_atendido.dif_fecha}}</td>
+       <td>Atendido</td>
+
+
+    </tr>
+
+{% endfor %}
+
+
+{% endif %}
+{% if ticket_cerrados %}
+
+
+
+
+{% for ticket_cerrados in ticket_cerrados %}
+
+    <tr class='cerrado'>
+
+    <td class='id'>{{ticket_cerrados.ticket__id}}</td>
+    <td >{{ticket_cerrados.ticket__cliente__first_name}}</td>
+    <td >{{ticket_cerrados.ticket__asunto}}</td>
+
+
+    <td >{{ticket_cerrados.dif_fecha}}</td>
+    <td>En prueba</td>
+
+    </tr>
+
+{% endfor %}
+
+
+{% endif %}
+
+</table>
+
+{% else %}
+
+
+<meta http-equiv="Refresh" content="0;url=/agregar_ticket_m">
+
+{% endif %}
+
+
+
+<script type="text/javascript">
+
+    $('.id').hide()
+
+    $('.atendido').css("color",'#fff');
+    $('.atendido').css("background",'#33cc33');
+    $( ".atendido" ).click(function() {
+
+    
+    window.location.href = "/mdetalle_ticket/"+$(this).children().html()
+
+});
+
+    $('.reasignado').css("color",'#fff');
+    $('.reasignado').css("background",'#777');
+    $( ".reasignado" ).click(function() {
+ 
+    
+    window.location.href = "/mdetalle_ticket/"+$(this).children().html()
+
+});
+
+       $('.asignado').css("color",'#fff');
+    $('.asignado').css("background",'#ff0000');
+    $( ".asignado" ).click(function() {
+ 
+    
+    window.location.href = "/mdetalle_ticket/"+$(this).children().html()
+
+});
+
+          $('.cerrado').css("color",'#fff');
+    $('.cerrado').css("background",'#872F8C');
+    $( ".cerrado" ).click(function() {
+
+    
+    window.location.href = "/mdetalle_ticket/"+$(this).children().html()
+
+});
+
+
+
+
+</script>
+
+</body>
+
+</html>
